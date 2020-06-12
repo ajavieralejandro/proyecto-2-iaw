@@ -18,5 +18,7 @@
                     <a href="https://github.com/laravel/laravel">GitHub</a>
                 </div>
             </div>
-
-            @endsection
+        </div>
+    </body>
+</html>
+@endsection
