@@ -18,9 +18,15 @@ Route::get('/', function () {
 });
 
 
+Route::get('users', ['uses'=>'UserController@index', 'as'=>'users.index']);
+
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/admin/login', 'Auth\AdminLoginController@showLoginForm')->name('showAdminLogin');
 Route::get('/admin', 'AdminController@index')->name('admin');
+Route::get('/crudCursos', 'CursoAdminCrud@index')->name('cursosCrud');
+Route::get('/api/cursos', 'CursoAdminCrud@getCursos')->name('getCursos');
+
 Route::post('/admin/login', 'Auth\AdminLoginController@login')->name('AdminLogin');
 
 
