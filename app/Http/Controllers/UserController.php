@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Docente;
 use Illuminate\Http\Request;
 use DataTables;
+
+
 
 class UserController extends Controller
 {
@@ -22,14 +25,35 @@ class UserController extends Controller
                     ->addIndexColumn()
                     ->addColumn('action', function($row){
    
-                           $btn = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">View</a>';
-     
+                           $btn = '<div><a href="javascript:void(0)" class="edit btn btn-outline-success btn-sm">View</a>
+                           <a href="javascript:void(0)" class="edit btn btn-outline-success btn-sm">Edit</a>
+                           <a href="javascript:void(0)" class="edit btn btn-outline-success btn-sm">Delete</a></div>';
+
                             return $btn;
                     })
-                    ->rawColumns(['action'])
+                    ->rawColumns(['action'])          
                     ->make(true);
         }
       
-        return view('users');
+    }
+
+    public function getDocentesDatatables(Request $request){
+
+        if ($request->ajax()) {
+            $data = Docente::latest()->get();
+            return Datatables::of($data)
+                    ->addIndexColumn()
+                    ->addColumn('action', function($row){
+                           $btn = '<div><a href="javascript:void(0)" class="edit btn btn-outline-success btn-sm">View</a>
+                           <a href="javascript:void(0)" class="edit btn btn-outline-success btn-sm">Edit</a>
+                           <a href="javascript:void(0)" class="edit btn btn-outline-success btn-sm">Delete</a></div>';
+
+                            return $btn;
+                    })
+                    ->rawColumns(['action'])          
+                    ->make(true);
+        }
+      
+
     }
 }

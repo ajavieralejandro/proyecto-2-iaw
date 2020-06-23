@@ -8,8 +8,8 @@
         <thead>
             <tr>
                 <th>No</th>
-                <th>Name</th>
-                <th>Email</th>
+                <th>Nombre</th>
+                <th>Profesion</th>
                 <th>Action</th>
 
             </tr>
@@ -40,11 +40,11 @@
     var table = $('.data-table').DataTable({
         processing: true,
         serverSide: true,
-        ajax: "{{ route('users.index') }}",
+        ajax: "{{ route('getDocentesTables') }}",
         columns: [
             {data: 'DT_RowIndex', name: 'DT_RowIndex'},
             {data: 'name', name: 'name'},
-            {data: 'email', name: 'email'},
+            {data: 'profesion', name: 'profesion'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
     });

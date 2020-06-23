@@ -27,15 +27,6 @@ class AdminLoginController extends Controller
         ]
         );
         //Attemp to log admin in
-        $credentials = $request->only('email', 'password');
-        $user = Admin::find(1);
-        $out = new \Symfony\Component\Console\Output\ConsoleOutput();
-        $out->writeln("Hello from Terminal");
-        $email = $request->email;
-        $password = Hash::make($request->password);
-        $out->writeln("Hola te traigo el user : ");
-        $out->writeln($user);
-        $out->writeln("fin de las credenciales 6");
         if(Auth::guard('admin')->attempt(['email' =>$request->email, 'password' => $request->password]))
             return redirect()->intended(route('admin'));
         else{

@@ -16,9 +16,9 @@
   </div>
   <div class="list-group">
   <a href="{{route('cursosCrud')}}" class="list-group-item list-group-item-action">Cursos</a>
-  <a href="#" class="list-group-item list-group-item-action">Agregar Nuevo Curso</a>
-  <a href="#" class="list-group-item list-group-item-action">Docentes</a>
-  <a href="#" class="list-group-item list-group-item-action">Agregar Nuevo Docente</a> 
+  <a href="{{route('newCurso')}}" class="list-group-item list-group-item-action">Agregar Nuevo Curso</a>
+  <a href="{{route('getDocentesView')}}" class="list-group-item list-group-item-action">Docentes</a>
+  <a href="{{route('newDocente')}}" class="list-group-item list-group-item-action">Agregar Nuevo Docente</a> 
 </div>
 </div>
 
