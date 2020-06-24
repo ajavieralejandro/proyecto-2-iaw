@@ -49,7 +49,12 @@ Route::get('/api/cursos', 'CursosController@getCursos')->name('getCursos');
 
 //Docentes Routes
 Route::get('/docentes', 'Docente\DocenteController@getDocentesView')->name('getDocentesView');
+Route::get('/editDocente/{id}', 'Docente\DocenteController@editDocenteView')->name('editDocentesView');
 Route::get('/docentesTables', 'Docente\DocenteController@getDocentesDatatables')->name('getDocentesTables');
+Route::get('/docente/{id}', 'Docente\DocenteController@getDocenteView')->name('getDocenteView');
+Route::put('/editdocente','Docente\DocenteController@updateDocente')->name('updateDocente');
+
+
 
 
 

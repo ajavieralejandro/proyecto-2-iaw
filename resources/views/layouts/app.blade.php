@@ -29,7 +29,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/index.css') }}" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/font-awesome.min.css') }}">
 
 
 
