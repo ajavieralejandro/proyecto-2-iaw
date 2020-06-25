@@ -7,6 +7,8 @@ use App\Docente;
 use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
+use Auth;
+
 
 
 
@@ -23,7 +25,6 @@ class DocenteController extends Controller
     }
 
     public function getDocentesDatatables(Request $request){
-
         if ($request->ajax()) {
             $data = Docente::latest()->get();
             return Datatables::of($data)
@@ -69,7 +70,20 @@ class DocenteController extends Controller
     }
 
     public function updateDocente(Request $request){
-        dd($request);
+        //falta darle acceso solo al admin
+        //Este metodo anda bien!!
+        if(Auth::guard('admin')->check()){
+        $docente = Docente::where('id','=', $request->id)->first();
+        $docente->name = $request->name;
+        $docente->bio = $request->bio;
+        $docente->profesion = $request->profesion;
+        if($request->image){
+            $image = base64_encode(file_get_contents($request->image->path()));
+            $docente->image = $image;
+        }
+        $docente->update();
+        dd($docente);   
+    }
     }
 
   

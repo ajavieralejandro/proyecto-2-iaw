@@ -9,8 +9,12 @@
   <div class="card-body">
 
 <form action="/editdocente" method="post" enctype="multipart/form-data">
+
 @method('PUT')
     @csrf
+
+    <input type="hidden" id="id" name="id" value={{$docente->id}}>
+
 
 <div class="image-upload" style="text-align:center">
   <label for="file-input">
