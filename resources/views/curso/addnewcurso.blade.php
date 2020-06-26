@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-<div class="card">
+<div class="card" style="width: 28rem;">
   <div class="card-header">
   <p>Inserte un nuevo curso</p>
   </div>
@@ -21,10 +21,10 @@
   <div class="form-group">
   <label for="sel1">Selecciona el docente : </label>
   <select class="form-control" id="sel1">
-    <option>1</option>
-    <option>2</option>
-    <option>3</option>
-    <option>4</option>
+    @foreach ($docentes as $docente)
+    <option>{{$docente->name}}</option>
+    @endforeach
+
   </select>
 </div>
 

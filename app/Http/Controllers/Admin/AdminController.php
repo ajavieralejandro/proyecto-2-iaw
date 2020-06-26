@@ -16,7 +16,8 @@ class AdminController extends Controller
 
 
     public function addCursoView(Request $request){
-        return View("curso.addnewcurso");
+        $docentes = Docente::all();
+        return View("curso.addnewcurso",['docentes' => $docentes]);
     }
 
     public function cursosCrudView(Request $request){

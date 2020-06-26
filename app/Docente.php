@@ -9,4 +9,9 @@ class Docente extends Model
     //
     protected $primaryKey = 'id';
 
+    public function cursos()
+    {
+        return $this->hasMany('App\Curso');
+    }
+
 }

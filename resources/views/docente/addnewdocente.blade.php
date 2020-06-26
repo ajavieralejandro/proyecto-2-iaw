@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-<div class="card">
+<div class="card" style="width: 28rem;">
   <div class="card-header">
   <p>Nuevo Docente</p>
   </div>

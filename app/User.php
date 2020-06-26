@@ -37,7 +37,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function cursos(){
+    //Un usuario puede estar subscripto a varios cursos 
+    public function subcripto(){
         return $this->hasMany(Curso::class);
     }
 }
