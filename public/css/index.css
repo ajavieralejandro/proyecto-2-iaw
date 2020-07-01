@@ -1,3 +1,8 @@
 .image-upload > input {
     display: none;
 }
+
+.view-image {
+    border-radius: 8px;
+    width: 400px;
+}

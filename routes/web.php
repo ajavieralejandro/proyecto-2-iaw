@@ -24,12 +24,9 @@ Route::get('users', ['uses'=>'UserController@index', 'as'=>'users.index']);
 Route::get('/home', 'HomeController@index')->name('home');
 
 //Admin Routes
-
 Route::middleware(['auth:admin'])->group(function () {
     Route::get('/admin', 'AdminController@index')->name('admin');
-    Route::get('/newCurso', 'AdminController@addCursoView')->name('newCurso');
     Route::get('/newDoncente', 'AdminController@addDocenteView')->name('newDocente');
-    Route::get('/crudCursos', 'AdminController@cursosCrudView')->name('cursosCrud');
 
 //Docentes Routes
 Route::get('/docentes', 'Docente\DocenteController@getDocentesView')->name('getDocentesView');
@@ -38,6 +35,14 @@ Route::get('/docentesTables', 'Docente\DocenteController@getDocentesDatatables')
 Route::get('/docente/{id}', 'Docente\DocenteController@getDocenteView')->name('getDocenteView');
 Route::put('/editdocente','Docente\DocenteController@updateDocente')->name('updateDocente');
 
+
+//Cursos Routes
+Route::get('/newCurso', 'AdminController@addCursoView')->name('newCurso');
+Route::get('/crudCursos', 'Curso\CursoController@getCursosView')->name('cursosCrud');
+Route::post('/addCurso','Curso\CursoController@addCurso')->name('addCurso');
+Route::get('/Curso/{id}','Curso\CursoController@viewCurso')->name('viewCurso');
+Route::get('/cursosTables', 'Curso\CursoController@getCursosDatatables')->name('getCursosTables');
+Route::delete('/deleteCurso','Curso\CursoController@deleteCurso')->name('deleteCurso');
 
 }
 );
@@ -57,8 +62,6 @@ Route::post('/upload/docente', 'AdminController@uploadDocente')->name('uploadDoc
 
 
 
-//Cursos Routes
-Route::get('/api/cursos', 'CursosController@getCursos')->name('getCursos');
 
 
 

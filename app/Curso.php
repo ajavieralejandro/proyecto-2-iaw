@@ -12,6 +12,14 @@ class Curso extends Model
      */
     public function docente()
     {
-        return $this->belongsTo('App\Docente','foreign_key');
+        return $this->belongsTo('App\Docente','docente_id');
     }
+         //Un curso tiene muchos usuarios subscriptos 
+         public function subscriptores(){
+            return $this->hasMany(User::class);
+        }
+        //Un curso tiene muchos comentarios
+        public function comentarios(){
+            return $this->hasMany(ComentarioCurso::class);
+        }
 }

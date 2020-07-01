@@ -16,8 +16,11 @@ class CreateCursosTable extends Migration
         Schema::create('cursos', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
-            $table->string('description');
-            $table->string('link');
+            $table->longText('description');
+            $table->unsignedInteger('docente_id');
+            $table->string('link')->nullable();
+            $table->string('youtubelink')->nullable();
+            $table->longText('image');
             $table->timestamps();
         });
     }

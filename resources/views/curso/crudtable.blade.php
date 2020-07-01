@@ -9,7 +9,6 @@
             <tr>
                 <th>No</th>
                 <th>Name</th>
-                <th>Email</th>
                 <th>Action</th>
 
             </tr>
@@ -34,21 +33,44 @@
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js" defer></script>
 
 <script type="text/javascript">
-  $(function () {
+   $(function () {
     
     var table = $('.data-table').DataTable({
         processing: true,
         serverSide: true,
-        ajax: "{{ route('users.index') }}",
+        ajax: "{{ route('getCursosTables') }}",
         columns: [
             {data: 'DT_RowIndex', name: 'DT_RowIndex'},
             {data: 'name', name: 'name'},
-            {data: 'email', name: 'email'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
     });
     
   });
+</script>
+
+<script type="text/javascript">
+//Dinamic button clicked on Jquery!!
+$(document).on('click', '.delete', function(event){
+    console.log("el elemento clickead es : ");
+    console.log(event.target.value);
+  aux = $('.delete').val(); 
+  console.log("El id es : ",aux); 
+  toDelete = confirm("Are you sure you want to Delete : "+event.target.name);
+  if(toDelete){
+    $.ajax({
+   url: '/deleteCurso',
+   type: 'DELETE',
+   data: {
+     "id" : event.target.value,
+    "_token": $("meta[name='csrf-token']").attr("content")
+   },
+   success: function(response) {
+     console.log("elemento eliminado");
+   }
+});
+  }
+});
 </script>
 
 

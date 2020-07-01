@@ -37,8 +37,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    //Un usuario puede estar subscripto a varios cursos 
-    public function subcripto(){
-        return $this->hasMany(Curso::class);
-    }
+        //Un usuario puede estar subscripto a varios cursos 
+        public function subscripto(){
+            return $this->hasMany(Curso::class);
+        }
+        //Un usuario tiene muchos comentarios, en distintos cursos, puede servir
+        //agregar esto para funcionalidades futuras
+        public function comentarios(){
+            return $this->hasMany(ComentarioCurso::class);
+        }
 }

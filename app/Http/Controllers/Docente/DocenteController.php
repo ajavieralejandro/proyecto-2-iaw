@@ -30,9 +30,9 @@ class DocenteController extends Controller
             return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('action', function($data){
-                           $btn = '<div><a href="/docente/'.$data->id.'" class="edit btn btn-outline-success btn-sm">View</a>
-                           <a href="editDocente/'.$data->id.'" class="edit btn btn-outline-success btn-sm">Edit</a>
-                           <a href="javascript:void(0)" class="edit btn btn-outline-success btn-sm">Delete</a></div>';
+                        $btn = '<div><a href="/docente/'.$data->id.'" class="edit btn btn-outline-success btn-sm">View</a>
+                        <a href="editDocente/'.$data->id.'" class="edit btn btn-outline-warning btn-sm">Edit</a>
+                        <a href="javascript:void(0)" class="edit btn btn-outline-danger btn-sm">Delete</a></div>';
 
                             return $btn;
                     })
@@ -45,7 +45,6 @@ class DocenteController extends Controller
 
     public function getDocentesView(Request $request){
         //No le doy acceso a menos que no sea admin
-        $this->middleware('auth:admin');
         return View("docente.crudtable");
 
     }
@@ -82,7 +81,7 @@ class DocenteController extends Controller
             $docente->image = $image;
         }
         $docente->update();
-        dd($docente);   
+        return View("admin.admin");
     }
     }
 
