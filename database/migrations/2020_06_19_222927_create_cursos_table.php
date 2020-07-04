@@ -17,15 +17,16 @@ class CreateCursosTable extends Migration
             $table->id();
             $table->string('name')->unique();
             $table->longText('description');
-            $table->unsignedInteger('docente_id');
+            $table->foreignId('docente_id');
             $table->string('link')->nullable();
             $table->string('youtubelink')->nullable();
             $table->longText('image');
             $table->timestamps();
         });
+  
     }
 
-    /**
+    /**s
      * Reverse the migrations.
      *
      * @return void

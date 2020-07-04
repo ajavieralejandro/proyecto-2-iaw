@@ -16,6 +16,8 @@ class CreateComentarioCursosTable extends Migration
         Schema::create('comentario_cursos', function (Blueprint $table) {
             $table->id();
             $table->text('comentario');
+            $table->foreignId('curso_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }

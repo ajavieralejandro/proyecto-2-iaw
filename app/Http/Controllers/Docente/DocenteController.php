@@ -8,6 +8,7 @@ use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use Auth;
+use Log;
 
 
 
@@ -32,7 +33,7 @@ class DocenteController extends Controller
                     ->addColumn('action', function($data){
                         $btn = '<div><a href="/docente/'.$data->id.'" class="edit btn btn-outline-success btn-sm">View</a>
                         <a href="editDocente/'.$data->id.'" class="edit btn btn-outline-warning btn-sm">Edit</a>
-                        <a href="javascript:void(0)" class="edit btn btn-outline-danger btn-sm">Delete</a></div>';
+                        <button name='.$data->name.'  value='.$data->id.' class="delete btn btn-outline-danger btn-sm">Delete</button></div>';
 
                             return $btn;
                     })
@@ -83,6 +84,22 @@ class DocenteController extends Controller
         $docente->update();
         return View("admin.admin");
     }
+    }
+
+    public function deleteDocente(Request $request){
+        if($request->ajax()){
+            Log::info("Quiero actualizarme");
+            Log::info($request->id);
+            $id = $request->id;
+            $docente = Docente::where('id','=', $id)->first();
+            foreach($docente->cursos as $curso)
+                $curso->delete();
+            $docente->delete();
+            return response(['Message' => 'This request has been deleted'], 200);
+        }
+            else 
+            return View("curso.crudtable");
+
     }
 
   

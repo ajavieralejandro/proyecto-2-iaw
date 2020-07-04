@@ -22,4 +22,9 @@ class Curso extends Model
         public function comentarios(){
             return $this->hasMany(ComentarioCurso::class);
         }
+
+               //Un curso tiene muchos comentarios
+        public function modulos(){
+                return $this->hasMany(ModuloCurso::class);
+            }
 }

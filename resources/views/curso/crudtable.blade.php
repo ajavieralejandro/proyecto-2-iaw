@@ -66,7 +66,7 @@ $(document).on('click', '.delete', function(event){
     "_token": $("meta[name='csrf-token']").attr("content")
    },
    success: function(response) {
-     console.log("elemento eliminado");
+    location.reload(true);
    }
 });
   }

@@ -25,7 +25,7 @@ class CursoController extends Controller
         $image = base64_encode(file_get_contents($request->image->path()));
         $curso->image = $image;
         $curso->save();
-        return View('admin.admin');
+        return View('curso.addmoduloscurso',['curso'=>$curso]);
     
     }
 
@@ -38,7 +38,7 @@ class CursoController extends Controller
                     ->addIndexColumn()
                     ->addColumn('action', function($data){
                            $btn = '<div><a href="/Curso/'.$data->id.'" class="edit btn btn-outline-success btn-sm">View</a>
-                           <a href="editDocente/'.$data->id.'" class="edit btn btn-outline-warning btn-sm">Edit</a>
+                           <a href="editCurso/'.$data->id.'" class="edit btn btn-outline-warning btn-sm">Edit</a>
                            <button name='.$data->name.'  value='.$data->id.' class="delete btn btn-outline-danger btn-sm">Delete</button></div>';
 
                             return $btn;
@@ -72,5 +72,36 @@ class CursoController extends Controller
         return View("curso.crudtable");
 
     }
+
+    public function addModulosCursoView(Request $request){
+        $id = $request->id;
+        $curso = Curso::where('id','=', $id)->first();
+        return View('curso.addmoduloscurso',['curso'=>$curso]);        
+    }
+
+    public function editCursoView(Request $request){
+        $id = $request->id;
+        $docentes = Docente::all();
+        $curso = Curso::where('id','=', $id)->first();
+        return View('curso.editcurso',['curso'=>$curso,'docentes'=>$docentes]);        
+    }
+
+    public function editCurso(Request $request){
+        $curso = Curso::where('id','=',$request->id)->first();
+        $curso->name = $request->name;
+        $curso->description = $request->descripcion;
+        $curso->link = $request->link;
+        $curso->youtubelink = $request->youtubelink;
+        $curso->docente_id = $request->docente;
+        if($request->image){
+            $image = base64_encode(file_get_contents($request->image->path()));
+            $curso->image = $image;
+        }
+        $curso->update();
+        return View("admin.admin");
+        
+    }
+
+    
 
 }

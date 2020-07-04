@@ -52,6 +52,33 @@
 </script>
 
 
+<script type="text/javascript">
+//Dinamic button clicked on Jquery!!
+$(document).on('click', '.delete', function(event){
+    console.log("el elemento clickead es : ");
+    console.log(event.target.value);
+  aux = $('.delete').val(); 
+  console.log("El id es : ",aux); 
+  toDelete = confirm("Are you sure you want to Delete : "+event.target.name);
+  if(toDelete){
+    $.ajax({
+   url: '/deleteDocente',
+   type: 'DELETE',
+   data: {
+     "id" : event.target.value,
+    "_token": $("meta[name='csrf-token']").attr("content")
+   },
+   success: function(response) {
+    location.reload(true);
+   }
+});
+  }
+});
+</script>
+
+
+
+
 
 
 

@@ -4,5 +4,10 @@
 
 .view-image {
     border-radius: 8px;
-    width: 400px;
+    width: 350px;
+}
+
+.module-button {
+    margin-top: 5%;
+    width: 100%;
 }

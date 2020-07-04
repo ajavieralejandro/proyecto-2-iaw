@@ -16,6 +16,7 @@ class CreateModuloCursosTable extends Migration
         Schema::create('modulo_cursos', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->foreignId('curso_id')->constrained()->onDelete('cascade');
             $table->text('description');
             $table->timestamps();
         });

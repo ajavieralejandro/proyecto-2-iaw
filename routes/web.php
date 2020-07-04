@@ -34,6 +34,8 @@ Route::get('/editDocente/{id}', 'Docente\DocenteController@editDocenteView')->na
 Route::get('/docentesTables', 'Docente\DocenteController@getDocentesDatatables')->name('getDocentesTables');
 Route::get('/docente/{id}', 'Docente\DocenteController@getDocenteView')->name('getDocenteView');
 Route::put('/editdocente','Docente\DocenteController@updateDocente')->name('updateDocente');
+Route::delete('/deleteDocente','Docente\DocenteController@deleteDocente')->name('deleteDocente');
+
 
 
 //Cursos Routes
@@ -43,6 +45,22 @@ Route::post('/addCurso','Curso\CursoController@addCurso')->name('addCurso');
 Route::get('/Curso/{id}','Curso\CursoController@viewCurso')->name('viewCurso');
 Route::get('/cursosTables', 'Curso\CursoController@getCursosDatatables')->name('getCursosTables');
 Route::delete('/deleteCurso','Curso\CursoController@deleteCurso')->name('deleteCurso');
+Route::get('/editCurso/{id}', 'Curso\CursoController@editCursoView')->name('editCursoView');
+Route::get('/addModulosCurso/{id}', 'Curso\CursoController@addModulosCursoView')->name('addModulosCursoView');
+Route::put('/editCurso','Curso\CursoController@editCurso')->name('updateCurso');
+
+
+//Modulos Routes
+Route::post('/addModulo','ModuloCurso\ModuloCursoController@addModulo')->name('addModulo');
+Route::get('/addModulo/{id}', 'ModuloCurso\ModuloCursoController@addModuloView')->name('addModuloView');
+Route::get('/getModulosView/{id}', 'ModuloCurso\ModuloCursoController@getModulosView')->name('getModulosView');
+Route::get('/modulo/{id}', 'ModuloCurso\ModuloCursoController@getModuloView')->name('getModuloView');
+Route::get('/editmodulo/{id}', 'ModuloCurso\ModuloCursoController@editModuloView')->name('editModuloView');
+Route::put('/editModulo','ModuloCurso\ModuloCursoController@editModulo')->name('editModulo');
+Route::delete('/deleteModulo','ModuloCurso\ModuloCursoController@deleteModulo')->name('deleteModulo');
+
+
+
 
 }
 );

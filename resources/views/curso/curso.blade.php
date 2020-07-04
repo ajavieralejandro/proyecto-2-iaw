@@ -5,10 +5,11 @@
 
 <div class="row">
 <div class="col-md-8">
-<h1>Curso : {{$curso->name}}</h1>
-<h3>Docente : {{$curso->docente->name}}</h3>
+<h3 >Curso : {{$curso->name}}</h3>
+<h3 >Docente : {{$curso->docente->name}}</h3>
 <h3>Descripción : </h3>
 <p class="card-text">{{$curso->description}}</p>
+<h3>Modulos : </h3>
 
 <div id="accordion">
   <div class="card">
@@ -59,6 +60,12 @@
 <div class="col-md-4">
 
 <img class="view-image" src="data:image/png;base64,{{$curso->image}}" alt="Red dot" /> 
+<a  class="module-button btn btn-primary" href="/addModulosCurso/{{$curso->id}}" role="button">Editar Modulos</a>
+<a  class="module-button btn btn-primary" href="/addModulosCurso/{{$curso->id}}" role="button">Ver Modulos</a>
+<a  class="module-button btn btn-primary" href="/addModulosCurso/{{$curso->id}}" role="button">Editar Curso</a>
+
+
+
 </div>  
 
 </div>

@@ -9,6 +9,6 @@ class ModuloCurso extends Model
     //
     public function curso()
     {
-        return $this->belongsTo('App\Curso','foreign_key');
+        return $this->belongsTo('App\Curso','curso_id');
     }
 }
