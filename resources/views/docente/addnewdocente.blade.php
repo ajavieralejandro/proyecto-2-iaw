@@ -27,6 +27,10 @@
     <input type="text" name="name" class="form-control" id="input1"  placeholder="Juan Perez">
   </div>
   <div class="form-group">
+  <label for="input1">email </label>
+    <input type="email" name="email" class="form-control" id="input0"  placeholder="email@example.com">
+  </div>
+  <div class="form-group">
   <label for="input2">Profesión: </label>
     <input type="text" class="form-control" name="profesion" id="input2"  placeholder="Ej: abogado">
   </div>

@@ -88,17 +88,27 @@ class DocenteController extends Controller
 
     public function deleteDocente(Request $request){
         if($request->ajax()){
-            Log::info("Quiero actualizarme");
-            Log::info($request->id);
             $id = $request->id;
             $docente = Docente::where('id','=', $id)->first();
-            foreach($docente->cursos as $curso)
-                $curso->delete();
             $docente->delete();
             return response(['Message' => 'This request has been deleted'], 200);
         }
             else 
             return View("curso.crudtable");
+
+    }
+
+    public function addDocente(Request $request){
+        //$image = base64_encode(file_get_contents($request->file('image')->pat‌​h()));
+        $image = base64_encode(file_get_contents($request->image->path()));
+        $docente = new Docente();
+        $docente->name = $request->name;
+        $docente->bio = $request->bio;
+        $docente->profesion = $request->profesion;
+        $docente->email = $request->email;
+        $docente->image = $image;
+        $docente->save();
+        return View('admin.admin');
 
     }
 

@@ -31,6 +31,7 @@ Route::get('/docentesTables', 'Docente\DocenteController@getDocentesDatatables')
 Route::get('/docente/{id}', 'Docente\DocenteController@getDocenteView')->name('getDocenteView');
 Route::put('/editdocente','Docente\DocenteController@updateDocente')->name('updateDocente');
 Route::delete('/deleteDocente','Docente\DocenteController@deleteDocente')->name('deleteDocente');
+Route::post('/upload/docente', 'Docente\DocenteController@addDocente')->name('uploadDocente');
 
 
 
@@ -57,8 +58,6 @@ Route::put('/editModulo','ModuloCurso\ModuloCursoController@editModulo')->name('
 Route::delete('/deleteModulo','ModuloCurso\ModuloCursoController@deleteModulo')->name('deleteModulo');
 
 
-
-
 }
 );
 
@@ -70,7 +69,7 @@ Route::get('/admin/login', 'Auth\AdminLoginController@showLoginForm')->name('sho
 
 //post
 Route::post('/admin/login', 'Auth\AdminLoginController@login')->name('AdminLogin');
-Route::post('/upload/docente', 'AdminController@uploadDocente')->name('uploadDocente');
+//Route::post('/upload/docente', 'AdminController@uploadDocente')->name('uploadDocente');
 
 
 

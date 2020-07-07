@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCursosTable extends Migration
+class CreateCursos extends Migration
 {
     /**
      * Run the migrations.
@@ -16,8 +16,9 @@ class CreateCursosTable extends Migration
         Schema::create('cursos', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
+            $table->float('price');
             $table->longText('description');
-            $table->foreignId('docente_id');
+            $table->foreignId('docente_id')->constrained()->onDelete('cascade');
             $table->string('link')->nullable();
             $table->string('youtubelink')->nullable();
             $table->longText('image');

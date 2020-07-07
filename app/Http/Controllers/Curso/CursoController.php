@@ -19,6 +19,7 @@ class CursoController extends Controller
         $curso = new Curso();
         $curso->name = $request->name;
         $curso->description = $request->descripcion;
+        $curso->price = $request->price;
         $curso->link = $request->link;
         $curso->youtubelink = $request->youtubelink;
         $curso->docente_id = $request->docente;

@@ -29,6 +29,10 @@
   <label for="input2">Classrom Link : </label>
     <input type="text" name="link" class="form-control" id="input3" >
   </div>
+  <div class="form-group">
+  <label for="input1">Precio: </label>
+    <input type="number" class="form-control" id="input0" name="price"  placeholder="500">
+  </div>
 
   <div class="form-group">
   <label for="sel1">Selecciona el docente : </label>
