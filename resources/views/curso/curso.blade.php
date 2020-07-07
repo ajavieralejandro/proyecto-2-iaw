@@ -9,8 +9,8 @@
 <h3 >Docente : {{$curso->docente->name}}</h3>
 <h3>Descripción : </h3>
 <p class="card-text">{{$curso->description}}</p>
+@if (count($curso->modulos))
 <h3>Modulos : </h3>
-
 <div id="accordion">
   <div class="card">
     <div class="card-header" id="headingOne">
@@ -56,12 +56,13 @@
     </div>
   </div>
 </div>
+@endif
+
 </div>  
 <div class="col-md-4">
 
 <img class="view-image" src="data:image/png;base64,{{$curso->image}}" alt="Red dot" /> 
 <a  class="module-button btn btn-primary" href="/addModulosCurso/{{$curso->id}}" role="button">Editar Modulos</a>
-<a  class="module-button btn btn-primary" href="/addModulosCurso/{{$curso->id}}" role="button">Ver Modulos</a>
 <a  class="module-button btn btn-primary" href="/addModulosCurso/{{$curso->id}}" role="button">Editar Curso</a>
 
 

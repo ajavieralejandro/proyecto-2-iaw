@@ -60,9 +60,13 @@ class CursoController extends Controller
         if($request->ajax()){
         Log::info("Logging one variable: ");
         $id = $request->id;
-        $curso = Curso::where('id','=', $id)->first()->delete();
-        return response(['Message' => 'This request has been deleted'], 200);
+        $curso = Curso::where('id','=', $id)->first();
+        if($curso->delete())
+            return response(['Message' => 'This request has been deleted'], 200);
+        else
+            return response(['Message' => 'id error '], 404);
     }
+        //En el caso de que no sea una petición ajax
         else 
         return View("curso.crudtable");
     }
@@ -73,7 +77,7 @@ class CursoController extends Controller
 
     }
 
-    public function addModulosCursoView(Request $request){
+    public function addModulosCursoView(Request $request){        
         $id = $request->id;
         $curso = Curso::where('id','=', $id)->first();
         return View('curso.addmoduloscurso',['curso'=>$curso]);        

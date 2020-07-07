@@ -1,24 +1,21 @@
 @extends('layouts.app')
 
 @section('content')
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+<div class="container">
+@foreach($cursos->chunk(3) as $chunk)
+    <div class="row">
+        @foreach($chunk as  $curso)
+            <div class="col-md-6">
+                <div class="card" style="width:18rem;">
+                    <img style=" height: 250px;" class="card-img-top"  src="data:image/png;base64,{{$curso->image}}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">{{$curso->name}}</h5>
+                        <p class="card-text">{{$curso->description}}</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </body>
-</html>
+        @endforeach
+    </div>
+@endforeach
+</div>
 @endsection

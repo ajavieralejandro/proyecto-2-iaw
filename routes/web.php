@@ -13,20 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
+//Route::get('users', ['uses'=>'UserController@index', 'as'=>'users.index']);
 
-Route::get('users', ['uses'=>'UserController@index', 'as'=>'users.index']);
-
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@welcome')->name('welcome');
+//Route::get('/home', 'HomeController@index')->name('home');
 
 //Admin Routes
 Route::middleware(['auth:admin'])->group(function () {
-    Route::get('/admin', 'AdminController@index')->name('admin');
-    Route::get('/newDoncente', 'AdminController@addDocenteView')->name('newDocente');
+Route::get('/admin', 'AdminController@index')->name('admin');
+Route::get('/newDoncente', 'AdminController@addDocenteView')->name('newDocente');
 
 //Docentes Routes
 Route::get('/docentes', 'Docente\DocenteController@getDocentesView')->name('getDocentesView');
@@ -54,6 +50,7 @@ Route::put('/editCurso','Curso\CursoController@editCurso')->name('updateCurso');
 Route::post('/addModulo','ModuloCurso\ModuloCursoController@addModulo')->name('addModulo');
 Route::get('/addModulo/{id}', 'ModuloCurso\ModuloCursoController@addModuloView')->name('addModuloView');
 Route::get('/getModulosView/{id}', 'ModuloCurso\ModuloCursoController@getModulosView')->name('getModulosView');
+Route::get('/getModulosTables/{id}', 'ModuloCurso\ModuloCursoController@getModulosTables')->name('getModulosTables');
 Route::get('/modulo/{id}', 'ModuloCurso\ModuloCursoController@getModuloView')->name('getModuloView');
 Route::get('/editmodulo/{id}', 'ModuloCurso\ModuloCursoController@editModuloView')->name('editModuloView');
 Route::put('/editModulo','ModuloCurso\ModuloCursoController@editModulo')->name('editModulo');

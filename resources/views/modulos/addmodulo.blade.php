@@ -2,6 +2,19 @@
 
 @section('content')
 <div class="container">
+
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+
+
 <form id="form1" action="/addModulo" method="post">  
 <input type="hidden" id="id" name="id" value={{$curso->id}}>
 @csrf
@@ -17,14 +30,15 @@
   <div class="card-body">
 
   <div class="form-group">
+
   <label for="input1">Título del modulo: </label>
-    <input type="text" class="form-control" id="input1" name="title"  placeholder="Ej : modulo 1">
+    <input type="text" class="form-control" id="input1" name="title" required  placeholder="Ej : modulo 1">
   </div>
 
 
   <div class="form-group">
   <label for="comment">Descripcion</label>
-  <textarea name="descripcion" class="form-control" rows="5" id="comment"></textarea>
+  <textarea name="description" required class="form-control" rows="5" id="comment"></textarea>
 </div>
 
 

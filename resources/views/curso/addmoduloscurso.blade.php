@@ -10,16 +10,16 @@
 
 
 
-<div class="card" style="width: 18rem;">
+<div class="card" style="width: 18rem">
   <div class="card-header">
     Modulos Curso
   </div>
   <div class="list-group">
   <a href="{{route('getModulosView',['id' => $curso->id])}}" class="list-group-item list-group-item-action">Ver Modulos</a>
   <a href="{{route('addModuloView',['id' => $curso->id])}}" class="list-group-item list-group-item-action">Agregar Nuevo Modulo</a> 
-  <a href="{{route('admin'}}" class="list-group-item list-group-item-action">Menu Admin</a> 
+  <a href="{{route('admin')}}" class="list-group-item list-group-item-action">Menu Admin</a> 
 
-</div>
+</div>  
 </div>
 
 
