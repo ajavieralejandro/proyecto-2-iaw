@@ -2,15 +2,15 @@
 
 @section('content')
 <div class="container">
+<div class="center">
+
 
 <form id="form1" action="/addCurso" method="post" enctype="multipart/form-data">  
 @csrf
 
-<div class="row">
 
-<div class="col-md">
 
-<div class="card" style="width: 28rem">
+<div class="card" style="width:600px;">
   <div class="card-header">
   <p>Inserte un nuevo curso</p>
   </div>
@@ -60,14 +60,13 @@
 
   <button id="target" type="submit" style="float:right" class="btn btn-primary">Siguiente</button>
 </div>
-</div>
-</div>
 
 
 
 
 
 </form>
+</div>
 </div>
 
 </div>

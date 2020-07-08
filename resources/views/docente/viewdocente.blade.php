@@ -2,13 +2,24 @@
 
 @section('content')
 <div class="container">
-<div class="card" style="width: 18rem;">
-<img src="data:image/png;base64, {{$docente->image}}" alt="Red dot" />  <div class="card-body">
-    <h5 class="card-title">{{$docente->name}}</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
+<div class="row">
+<div class="col-sm-12 col-md-4">
+<div class="center">
+<img class="avatar"    src="data:image/png;base64, {{$docente->image}}" alt="Red dot" />  
 </div>
+</div>
+<div class="col-sm-12 col-md-8" style="text-align:center">
+<h1>{{$docente->name}}</h1>
+    <p>mail : {{$docente->email}}</p>
+    <p>profesión : {{$docente->profesion}}</p>
+    <p>bio : {{$docente->bio}}  </p> 
+
+</div>
+
+</div>
+
+
+
 </div>  
 
 @endsection

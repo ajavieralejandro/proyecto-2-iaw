@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+<div class="center">
 <div class="card" style="width: 28rem;">
   <div class="card-header">
   <p>Nuevo Docente</p>
@@ -42,6 +43,7 @@
 
   <button type="submit" value="Upload" class="btn btn-primary">Cargar Docente</button>
 </form>
+</div>
 </div>
 </div>
 </div>
