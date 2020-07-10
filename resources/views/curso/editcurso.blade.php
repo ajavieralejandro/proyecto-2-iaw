@@ -21,21 +21,21 @@
 
   <div class="form-group">
   <label for="input1">Nombre del Curso: </label>
-    <input type="text" class="form-control" id="input1" name="name" value="{{$curso->name}}">
+    <input type="text" required  class="form-control" id="input1" name="name" value="{{$curso->name}}">
   </div>
   <div class="form-group">
   <label for="input2">Youtube Link : </label>
-    <input type="text" class="form-control" name="youtubelink" value="{{$curso->youtubelink}}"  id="input2"  placeholder="https://youtube.com">
+    <input type="text" required  class="form-control" name="youtubelink" value="{{$curso->youtubelink}}"  id="input2"  placeholder="https://youtube.com">
   </div>
 
   <div class="form-group">
   <label for="input2">Classrom Link : </label>
-    <input type="text" name="link" class="form-control" value="{{$curso->link}}" id="input3" >
+    <input type="text" required  name="link" class="form-control" value="{{$curso->link}}" id="input3" >
   </div>
 
   <div class="form-group">
   <label for="sel1">Selecciona el docente : </label>
-  <select class="form-control" name="docente" value="{{$curso->docente}}" id="sel1">
+  <select required  class="form-control" name="docente" value="{{$curso->docente}}" id="sel1">
     @foreach ($docentes as $docente)
     <option value={{ $docente->id }} >{{$docente->name}}</option>
     @endforeach
@@ -45,7 +45,7 @@
 
   <div class="form-group">
   <label for="comment">Descripcion</label>
-  <textarea name="descripcion" class="form-control" rows="5" id="comment">{{$curso->description}}</textarea>
+  <textarea required  name="descripcion" class="form-control" rows="5" id="comment">{{$curso->description}}</textarea>
 </div>
 
 <div class="image-upload" style="text-align:center">

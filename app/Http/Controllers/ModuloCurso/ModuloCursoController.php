@@ -16,21 +16,20 @@ use Log;
 class ModuloCursoController extends Controller
 {
     //
+
+ 
     public function addModulo(Request $request){
         //Reglas de validación 
-        
-
         $validator = Validator::make($request->all(), [
             'title' => ['required', 'max:255'],
             'description' => ['required'],
         ]);
-
+        
         if ($validator->fails()) {
             return back()
                         ->withErrors($validator)
                         ->withInput();
         }
-
         $modulo = new ModuloCurso();
         $modulo->curso_id = $request->id;
         $modulo->title = $request->title;
@@ -63,12 +62,25 @@ class ModuloCursoController extends Controller
     }
 
     public function editModuloView(Request $request){
+        
         $data = ModuloCurso::where('id','=', $request->id)->first();
+        
         return View('modulos.editmodulo',['modulo' => $data]);
 
     }
 
     public function editModulo(Request $request){
+            //Reglas de validación 
+            $validator = Validator::make($request->all(), [
+                'title' => ['required', 'max:255'],
+                'description' => ['required'],
+            ]);
+            
+            if ($validator->fails()) {
+                return back()
+                            ->withErrors($validator)
+                            ->withInput();
+            }
         $modulo = ModuloCurso::where('id','=',  $request->id)->first();
         $modulo->title = $request->title;
         $modulo->description = $request->descripcion;
@@ -90,10 +102,8 @@ class ModuloCursoController extends Controller
 
     public function getModulosTables(Request $request){
         if ($request->ajax()) {
-            Log::info('This is some useful information.');
-            Log::info($request->id);
-            //$output = new Symfony\Component\Console\Output\ConsoleOutput();
-            //$output->writeln("Hola, algo esta pasando");
+            //Log::info('This is some useful information.');
+            //Log::info($request->id);
             $data = ModuloCurso::where('curso_id','=',  $request->id)->get();
             return Datatables::of($data)
                     ->addIndexColumn()

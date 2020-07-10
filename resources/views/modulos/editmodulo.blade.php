@@ -22,13 +22,13 @@
 
   <div class="form-group">
   <label for="input1">Título del modulo: </label>
-    <input type="text" class="form-control" id="input1" name="title" value="{{$modulo->title}}" >
+    <input type="text" class="form-control" required  id="input1" name="title" value="{{$modulo->title}}" >
   </div>
 
 
   <div class="form-group">
   <label for="comment">Descripcion</label>
-  <textarea name="descripcion" class="form-control" rows="5" id="comment">{{$modulo->description}}</textarea>
+  <textarea name="descripcion" required  class="form-control" rows="5" id="comment">{{$modulo->description}}</textarea>
 </div>
 
 

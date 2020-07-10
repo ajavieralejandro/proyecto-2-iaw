@@ -17,11 +17,11 @@ class CreateCursos extends Migration
             $table->id();
             $table->string('name')->unique();
             $table->float('price');
-            $table->longText('description');
+            $table->longText('description')->nullable();
             $table->foreignId('docente_id')->constrained()->onDelete('cascade');
             $table->string('link')->nullable();
             $table->string('youtubelink')->nullable();
-            $table->longText('image');
+            $table->longText('image')->nullable();
             $table->timestamps();
         });
   

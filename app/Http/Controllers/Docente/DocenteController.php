@@ -7,6 +7,7 @@ use App\Docente;
 use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 use Auth;
 use Log;
 
@@ -51,8 +52,7 @@ class DocenteController extends Controller
     }
 
     public function editDocenteView(Request $request){
-                //No le doy acceso a menos que no sea admin
-                $this->middleware('auth:admin');
+        
                 $id = $request->route('id');
                 $docente = Docente::where('id','=', $id)->first();
                 return View("docente.editdocente",['docente'=>$docente]);
@@ -70,20 +70,32 @@ class DocenteController extends Controller
     }
 
     public function updateDocente(Request $request){
-        //falta darle acceso solo al admin
-        //Este metodo anda bien!!
-        if(Auth::guard('admin')->check()){
+               //Reglas de validación 
+               $validator = Validator::make($request->all(), [
+                'name' => ['required', 'max:255'],
+                'bio' => ['required'],
+                'email' => ['required'],
+                'profesion' => ['required'],
+    
+            ]);
+            
+            if ($validator->fails()) {
+                return back()
+                            ->withErrors($validator)
+                            ->withInput();
+            }
         $docente = Docente::where('id','=', $request->id)->first();
         $docente->name = $request->name;
         $docente->bio = $request->bio;
         $docente->profesion = $request->profesion;
+        $docente->email = $request->email;
         if($request->image){
             $image = base64_encode(file_get_contents($request->image->path()));
             $docente->image = $image;
         }
         $docente->update();
         return View("admin.admin");
-    }
+    
     }
 
     public function deleteDocente(Request $request){
@@ -99,14 +111,29 @@ class DocenteController extends Controller
     }
 
     public function addDocente(Request $request){
+        $validator = Validator::make($request->all(), [
+            'name' => ['required', 'max:255'],
+            'bio' => ['required'],
+            'email' => ['required'],
+            'profesion' => ['required'],
+
+        ]);
+        
+        if ($validator->fails()) {
+            return back()
+                        ->withErrors($validator)
+                        ->withInput();
+        }
         //$image = base64_encode(file_get_contents($request->file('image')->pat‌​h()));
-        $image = base64_encode(file_get_contents($request->image->path()));
         $docente = new Docente();
         $docente->name = $request->name;
         $docente->bio = $request->bio;
         $docente->profesion = $request->profesion;
         $docente->email = $request->email;
-        $docente->image = $image;
+        if($request->image){
+            $image = base64_encode(file_get_contents($request->image->path()));
+            $docente->image = $image;
+        }
         $docente->save();
         return View('admin.admin');
 

@@ -8,13 +8,30 @@ use Yajra\DataTables\DataTables;
 use App\Curso;
 use App\Docente;
 use Log;
+use Illuminate\Support\Facades\Validator;
+
 
 
 class CursoController extends Controller
 {
     //
     public function addCurso(Request $request){
-        //falta validar
+
+        //validator
+        $validator = Validator::make($request->all(), [
+            'name' => ['required', 'max:255'],
+            'descripcion' => ['required'],
+            'price' => 'required|integer|min:0',
+            'link' => ['required'],
+            'youtubelink' => ['required'],
+            'docente' => ['required'],            
+        ]);
+        if ($validator->fails()) {
+            return back()
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+
 
         $curso = new Curso();
         $curso->name = $request->name;
@@ -23,8 +40,11 @@ class CursoController extends Controller
         $curso->link = $request->link;
         $curso->youtubelink = $request->youtubelink;
         $curso->docente_id = $request->docente;
-        $image = base64_encode(file_get_contents($request->image->path()));
-        $curso->image = $image;
+        //la imagen puede ser nula 
+        if($request->image){
+            $image = base64_encode(file_get_contents($request->image->path()));
+            $curso->image = $image;
+        }
         $curso->save();
         return View('curso.addmoduloscurso',['curso'=>$curso]);
     

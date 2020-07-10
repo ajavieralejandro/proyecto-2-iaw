@@ -19,7 +19,7 @@ class CreateDocentesTable extends Migration
             $table->string('email')->unique();
             $table->string('profesion');
             $table->text('bio');
-            $table->longText('image');
+            $table->longText('image')->nullable();
             $table->timestamps();
         });
     }
