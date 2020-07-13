@@ -2,6 +2,15 @@
 
 @section('content')
 <div class="container">
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 <form id="form1" action="/editCurso" method="post" enctype="multipart/form-data">  
 <input type="hidden" id="id" name="id" value={{$curso->id}}>
 
@@ -31,6 +40,11 @@
   <div class="form-group">
   <label for="input2">Classrom Link : </label>
     <input type="text" required  name="link" class="form-control" value="{{$curso->link}}" id="input3" >
+  </div>
+
+  <div class="form-group">
+  <label for="input1">Precio: </label>
+    <input required  type="number" class="form-control" id="input0" name="price" value="{{$curso->price}}"  placeholder="500">
   </div>
 
   <div class="form-group">
@@ -74,3 +88,53 @@
 
 
 
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+
+<div class="row">
+<div class="col-md-8">
+<h3 >Curso : {{$curso->name}}</h3>
+<h3 >Docente : {{$curso->docente->name}}</h3>
+<h3>Descripción : </h3>
+<p class="card-text">{{$curso->description}}</p>
+@if (count($curso->modulos))
+<h3>Modulos : </h3>
+<div id="accordion">
+@foreach ($curso->modulos as $modulo)
+
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          {{$modulo->title}}
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body">
+      {{$modulo->description}}
+      </div>    
+    </div>
+  </div>
+  @endforeach
+
+  
+</div>
+@endif
+
+</div>  
+<div class="col-md-4">
+
+<img class="view-image" src="data:image/png;base64,{{$curso->image}}" alt="Red dot" /> 
+
+</div>  
+
+</div>
+
+ 
+</div>  
+
+@endsection

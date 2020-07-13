@@ -112,6 +112,21 @@ class CursoController extends Controller
     }
 
     public function editCurso(Request $request){
+            //validator
+            $validator = Validator::make($request->all(), [
+                'name' => ['required', 'max:255'],
+                'descripcion' => ['required'],
+                'price' => 'required|integer|min:0',
+                'link' => ['required'],
+                'youtubelink' => ['required'],
+                'docente' => ['required'],            
+            ]);
+            if ($validator->fails()) {
+                return back()
+                            ->withErrors($validator)
+                            ->withInput();
+            }
+    
         $curso = Curso::where('id','=',$request->id)->first();
         $curso->name = $request->name;
         $curso->description = $request->descripcion;

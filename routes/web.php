@@ -20,7 +20,7 @@ Route::get('/', 'HomeController@welcome')->name('welcome');
 //Route::get('/home', 'HomeController@index')->name('home');
 
 //Admin Routes
-Route::middleware(['auth:admin'])->group(function () {
+Route::middleware(['isAdmin'])->group(function () {
 Route::get('/admin', 'AdminController@index')->name('admin');
 Route::get('/newDoncente', 'AdminController@addDocenteView')->name('newDocente');
 
@@ -60,6 +60,12 @@ Route::delete('/deleteModulo','ModuloCurso\ModuloCursoController@deleteModulo')-
 
 }
 );
+
+//user auth midleware
+Route::middleware(['auth:web'])->group(function () {
+    Route::get('/home', 'HomeController@index')->name('home');
+
+});
 
 //gets
 Route::get('/admin/login', 'Auth\AdminLoginController@showLoginForm')->name('showAdminLogin');

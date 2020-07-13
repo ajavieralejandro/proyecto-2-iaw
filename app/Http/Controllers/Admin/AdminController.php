@@ -7,7 +7,7 @@ class AdminController extends Controller
 {
     public function __construct(){
         //Set up admin guard
-        $this->middleware('auth:admin');
+        //$this->middleware('auth:admin');
     }
 
     public function index(){
