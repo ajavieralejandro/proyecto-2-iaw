@@ -29,7 +29,7 @@ class HomeController extends Controller
     }
 
     public function welcome(Request $request){
-        $cursos = Curso::all();
+        $cursos = Curso::all(); 
         return View('welcome')->with(compact('cursos'));
     }
 }

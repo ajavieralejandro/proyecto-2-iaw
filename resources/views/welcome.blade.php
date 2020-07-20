@@ -17,7 +17,7 @@
                         @else
                         {{$curso->description}}
                         @endif</p>
-                        <a href="#" class="btn btn-primary">Ver más</a>
+                        <a href="{{route('viewCurso', ['id' => $curso->id])}}" class="right btn btn-outline-success">Ver más</a>
                     </div>
                 </div>
             </div>

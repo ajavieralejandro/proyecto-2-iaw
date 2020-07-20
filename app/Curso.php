@@ -16,7 +16,7 @@ class Curso extends Model
     }
          //Un curso tiene muchos usuarios subscriptos 
          public function subscriptores(){
-            return $this->hasMany(User::class);
+            return $this->belongsToMany('App\User','curso_user','curso_id','user_id');
         }
         //Un curso tiene muchos comentarios
         public function comentarios(){

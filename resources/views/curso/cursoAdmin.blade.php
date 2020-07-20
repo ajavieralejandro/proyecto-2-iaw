@@ -39,7 +39,8 @@
 <div class="col-md-4">
 
 <img class="view-image" src="data:image/png;base64,{{$curso->image}}" alt="Red dot" /> 
-<a  class="module-button btn btn-primary" href="{{route('addCurso', ['id' => $curso->id])}}" role="button">Subscribirse</a>
+<a  class="module-button btn btn-primary" href="/addModulosCurso/{{$curso->id}}" role="button">Editar Modulos</a>
+<a  class="module-button btn btn-primary" href="/addModulosCurso/{{$curso->id}}" role="button">Editar Curso</a>
 
 
 

@@ -58,7 +58,7 @@ class CursoController extends Controller
             return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('action', function($data){
-                           $btn = '<div><a href="/Curso/'.$data->id.'" class="edit btn btn-outline-success btn-sm">View</a>
+                           $btn = '<div><a href="/CursoAdmin/'.$data->id.'" class="edit btn btn-outline-success btn-sm">View</a>
                            <a href="editCurso/'.$data->id.'" class="edit btn btn-outline-warning btn-sm">Edit</a>
                            <button name='.$data->name.'  value='.$data->id.' class="delete btn btn-outline-danger btn-sm">Delete</button></div>';
 
@@ -69,6 +69,12 @@ class CursoController extends Controller
         }
       
 
+    }
+
+    public function viewCursoAdmin(Request $request){
+        $id = $request->route('id');
+        $curso = Curso::where('id','=', $id)->first();
+        return View("curso.cursoAdmin",['curso'=>$curso]);
     }
 
     public function viewCurso(Request $request){

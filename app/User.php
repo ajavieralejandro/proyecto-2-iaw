@@ -39,7 +39,7 @@ class User extends Authenticatable
 
         //Un usuario puede estar subscripto a varios cursos 
         public function subscripto(){
-            return $this->hasMany(Curso::class);
+            return $this->belongsToMany(Curso::class);
         }
         //Un usuario tiene muchos comentarios, en distintos cursos, puede servir
         //agregar esto para funcionalidades futuras

@@ -39,7 +39,7 @@ Route::post('/upload/docente', 'Docente\DocenteController@addDocente')->name('up
 Route::get('/newCurso', 'AdminController@addCursoView')->name('newCurso');
 Route::get('/crudCursos', 'Curso\CursoController@getCursosView')->name('cursosCrud');
 Route::post('/addCurso','Curso\CursoController@addCurso')->name('addCurso');
-Route::get('/Curso/{id}','Curso\CursoController@viewCurso')->name('viewCurso');
+Route::get('/CursoAdmin/{id}','Curso\CursoController@viewCursoAdmin')->name('viewCursoAdmin');
 Route::get('/cursosTables', 'Curso\CursoController@getCursosDatatables')->name('getCursosTables');
 Route::delete('/deleteCurso','Curso\CursoController@deleteCurso')->name('deleteCurso');
 Route::get('/editCurso/{id}', 'Curso\CursoController@editCursoView')->name('editCursoView');
@@ -64,12 +64,20 @@ Route::delete('/deleteModulo','ModuloCurso\ModuloCursoController@deleteModulo')-
 //user auth midleware
 Route::middleware(['auth:web'])->group(function () {
     Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/user', 'User\UserController@viewUser')->name('viewUser');
+    Route::get('/editUser', 'User\UserController@editUser')->name('editUser');
+    Route::put('/editUser', 'User\UserController@editUserPut')->name('editUserPut');
+    Route::get('/addCurso/{id}', 'User\UserController@addCurso')->name('addCurso');
+
+
+
+
 
 });
 
 //gets
 Route::get('/admin/login', 'Auth\AdminLoginController@showLoginForm')->name('showAdminLogin');
-
+Route::get('/Curso/{id}','Curso\CursoController@viewCurso')->name('viewCurso');
 
 
 
