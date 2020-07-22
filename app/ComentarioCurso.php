@@ -13,10 +13,10 @@ class ComentarioCurso extends Model
      */
     public function curso()
     {
-        return $this->belongsTo('App\Curso','foreign_key');
+        return $this->belongsTo('App\Curso','curso_id');
     }
     public function usuario()
     {
-        return $this->belongsTo('App\User','foreign_key');
+        return $this->belongsTo('App\User','user_id');
     }
 }

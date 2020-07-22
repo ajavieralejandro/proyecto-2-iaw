@@ -2,7 +2,8 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request; 
 use App\Docente;
-
+use Log;
+use Auth;
 class AdminController extends Controller
 {
     public function __construct(){
@@ -11,6 +12,8 @@ class AdminController extends Controller
     }
 
     public function index(){
+        Log::info("Estoy queriendo entrar como admin");
+        Log::info(Auth::user());
         return View('admin.admin');
     }
 

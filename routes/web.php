@@ -20,7 +20,7 @@ Route::get('/', 'HomeController@welcome')->name('welcome');
 //Route::get('/home', 'HomeController@index')->name('home');
 
 //Admin Routes
-Route::middleware(['isAdmin'])->group(function () {
+Route::middleware(['auth:admin'])->group(function () {
 Route::get('/admin', 'AdminController@index')->name('admin');
 Route::get('/newDoncente', 'AdminController@addDocenteView')->name('newDocente');
 
@@ -68,6 +68,9 @@ Route::middleware(['auth:web'])->group(function () {
     Route::get('/editUser', 'User\UserController@editUser')->name('editUser');
     Route::put('/editUser', 'User\UserController@editUserPut')->name('editUserPut');
     Route::get('/addCurso/{id}', 'User\UserController@addCurso')->name('addCurso');
+    Route::get('/userCursos', 'User\UserController@getUserCursosView')->name('getUserCursosView');
+
+    Route::post('/addComentario', 'Comentario\ComentarioController@addComentario')->name('addComentario');
 
 
 

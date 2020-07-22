@@ -27,10 +27,18 @@ class UserController extends Controller
         $user = Auth::user();
         Log::info("Llego acá sin errores 1");
         $curso = Curso::where('id','=', $request->id)->first();
-        $curso->subscriptores()->attach($user);
         Log::info("Llego acá sin errores 2");
-        $user->subscripto()->attach($curso);
-        Log::info("Llego acá sin errores 3");
+        if(!$user->subscripto()->get()->where('curso_id',$curso->id)->first()){
+            Log::info("Voy a subscribir al usuario : ");
+            $user->subscripto()->attach($curso->id);
+        
+        }
+        else
+        Log::info("El usuario ya está inscripto. ");
+
+    
+ 
+        Log::info("Finalizo sin errores");
         return back();
     }
 
@@ -72,6 +80,12 @@ class UserController extends Controller
         Log::info("Llego acá sin errores 5");
             return View('user.user');
 
+    }
+
+    public function getUserCursosView(Request $request){
+        $user = Auth::user();
+        $cursos = $user->subscripto()->get();
+        return View('curso.cursosuser',['cursos'=>$cursos]);
     }
 
 

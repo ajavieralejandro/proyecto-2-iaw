@@ -15,8 +15,8 @@ class CursoUserTable extends Migration
     {
         //
         Schema::create('curso_user', function (Blueprint $table) {
-            $table->foreignId('curso_id')->constrained()->onDelete('cascade');
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('curso_id');
+            $table->foreignId('user_id');
 
     
         });

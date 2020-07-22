@@ -8,6 +8,7 @@ use Yajra\DataTables\DataTables;
 use App\Curso;
 use App\Docente;
 use Log;
+use Embed;
 use Illuminate\Support\Facades\Validator;
 
 
@@ -78,9 +79,18 @@ class CursoController extends Controller
     }
 
     public function viewCurso(Request $request){
+        Log::info("Estoy en el metodo de ViewCurso");
         $id = $request->route('id');
         $curso = Curso::where('id','=', $id)->first();
-        return View("curso.curso",['curso'=>$curso]);
+        $curso->youtubelink = Embed::make($curso->youtubelink)->parseUrl();
+        if($curso->youtubelink){
+            $curso->youtubelink->setAttribute(['width' => 400]);
+            $curso->youtubelink = $curso->youtubelink->getHtml();
+        }
+        if($curso!=null)
+            return View("curso.curso",['curso'=>$curso]);
+        else
+            return back();
     }
 
     public function deleteCurso(Request $request){
@@ -147,6 +157,7 @@ class CursoController extends Controller
         return View("admin.admin");
         
     }
+
 
     
 

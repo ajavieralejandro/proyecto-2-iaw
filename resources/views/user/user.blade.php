@@ -15,7 +15,7 @@
     {{Auth::user()->name}}
   </div>
   <div class="list-group">
-  <a href="#" class="list-group-item list-group-item-action">Ver Cursos</a>
+  <a href="{{route('getUserCursosView')}}" class="list-group-item list-group-item-action">Ver Cursos</a>
   <a href="{{route('editUser')}}" class="list-group-item list-group-item-action">Editar Perfil</a> 
 </div>  
 </div>
