@@ -1,22 +1,27 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="container">
+<div class="gallery" id="gallery">
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
+@foreach($cursos as $curso)
+    <div class="gallery-item">
+        <img class="mason-img"   src="data:image/png;base64,{{$curso->image}}" alt="Card image cap">
+        <div class="middle">
+    <div class="text"><a href="{{route('viewCurso',['id' => $curso->id])}}">{{$curso->name}}</a></div>
+  </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
+  
+        </div>
+@endforeach
+</div>
 
-            @endsection
+
+</div>
+
+@endsection
+
+@section('scripts')
+<script src="{{ asset('js/masonry.js') }}" defer></script>
+
+@endsection
