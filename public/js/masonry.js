@@ -22,6 +22,6 @@ const masonryLayout = (containerElem, itemElems, columns) => {
 masonryLayout(
     document.getElementById("gallery"),
     document.querySelectorAll(".gallery-item"),
-    4
+    2
 );
 console.log("Eh finalizado correctamente");

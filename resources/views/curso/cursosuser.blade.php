@@ -3,15 +3,17 @@
 @section('content')
 <div class="container">
     <h2>Cursos subscripto: </h2>
-    <div class="gallery">
+    <div class="gallery" id="gallery">
 
 @foreach($cursos as $curso)
-    <div class="img-container">
+    <div class="gallery-item">
         <img class="mason-img"   src="data:image/png;base64,{{$curso->image}}" alt="Card image cap">
         <div class="middle">
-    <div class="text">{{$curso->name}}</div>
+    <div class="text"><a href="{{route('viewCurso',['id' => $curso->id])}}">{{$curso->name}}</a></div>
   </div>
-</div>
+
+  
+        </div>
 @endforeach
 </div>
 
@@ -20,6 +22,6 @@
 @endsection
 
 @section('scripts')
-<script src="{{ asset('js/app.js') }}" defer></script>
+<script src="{{ asset('js/masonry.js') }}" defer></script>
 
 @endsection
