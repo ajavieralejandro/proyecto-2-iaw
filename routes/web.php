@@ -82,6 +82,12 @@ Route::middleware(['auth:web'])->group(function () {
 Route::get('/admin/login', 'Auth\AdminLoginController@showLoginForm')->name('showAdminLogin');
 Route::get('/Curso/{id}','Curso\CursoController@viewCurso')->name('viewCurso');
 
+Route::get('/team', 'Docente\DocenteController@getTeamView')->name('getTeamView');
+
+Route::get('/teamdocente/{id}', 'Docente\DocenteController@getTeamDocenteView')->name('getTeamDocenteView');
+
+    
+
 
 
 //post
@@ -89,7 +95,6 @@ Route::post('/admin/login', 'Auth\AdminLoginController@login')->name('AdminLogin
 //Route::post('/upload/docente', 'AdminController@uploadDocente')->name('uploadDocente');
 
 
-Route::get('/apiCursos','Curso\CursoController@apiCursos');
 
 
 

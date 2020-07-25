@@ -61,6 +61,14 @@ class DocenteController extends Controller
 
     }
 
+    public function getTeamView(Request $request){
+
+        $docentes = Docente::all();
+        return View("docente.team",['docentes'=>$docentes]);
+
+        
+    }
+
     public function getDocenteView(Request $request){
         $id = $request->route('id');
         $docente = Docente::where('id','=', $id)->first();
@@ -68,6 +76,16 @@ class DocenteController extends Controller
         //$image = imagecreatefromstring(base64_decode($results->getBase64Image()));
 
     }
+
+    public function getTeamDocenteView(Request $request){
+        $id = $request->route('id');
+        $docente = Docente::where('id','=', $id)->first();
+        $cursos = $docente->cursos;
+        return View("docente.docenteteam",['docente'=>$docente,'cursos'=>$cursos]);
+        //$image = imagecreatefromstring(base64_decode($results->getBase64Image()));
+
+    }
+
 
     public function updateDocente(Request $request){
                //Reglas de validación 
