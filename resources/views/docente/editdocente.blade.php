@@ -2,11 +2,22 @@
 
 @section('content')
 <div class="container">
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 <div class="center">
+
 <div class="card" style="width:400px;">
   <div class="card-header">
   <p>Editar Docente</p>
   </div>
+  
   <div class="card-body">
 
 <form action="/editdocente" method="post" enctype="multipart/form-data">
@@ -32,9 +43,15 @@
     <input type="text" required  name="name" value="{{$docente->name}}"class="form-control" id="input1"  placeholder="Juan Perez">
   </div>    
   <div class="form-group">
+  <label for="input1">email </label>
+    <input type="email" required  name="email" class="form-control" id="input3" value="{{$docente->email}}" >
+  </div>
+  <div class="form-group">
   <label for="input2">Profesión: </label>
     <input type="text" required  value="{{$docente->profesion}}" class="form-control" name="profesion" id="input2"  placeholder="Ej: abogado">
   </div>
+
+  
 
   <div class="form-group">
   <label for="comment">Bio: </label>

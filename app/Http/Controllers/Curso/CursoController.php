@@ -46,6 +46,10 @@ class CursoController extends Controller
             $image = base64_encode(file_get_contents($request->image->path()));
             $curso->image = $image;
         }
+        else{
+            $path = base_path().'/public/images/curso.jpg';
+            $curso->image = base64_encode(file_get_contents($path));
+        }
         $curso->save();
         return View('curso.addmoduloscurso',['curso'=>$curso]);
     
@@ -91,6 +95,12 @@ class CursoController extends Controller
             return View("curso.curso",['curso'=>$curso]);
         else
             return back();
+    }
+
+
+    public function apiCursos(){
+        Log::info("Hola estoy en api cursos");
+        return response(['Message' => 'Todo esta andando bien!!'], 200);
     }
 
     public function deleteCurso(Request $request){

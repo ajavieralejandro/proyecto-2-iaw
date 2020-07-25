@@ -45,18 +45,14 @@ class User extends Authenticatable
         }
 
         public function isSubscripto($curso_id){
-            Log::info("Metodo isSubscripto :");
-            Log::info("Soy el usuario : ");
-            Log::info($this->name);
+
             foreach($this->subscripto()->get() as $aux){
                 if($aux->id==$curso_id){
-                    Log::info("Voy a retornar true");
                     return true;
                 }
-                Log::info("Estoy subscripto a :     ");
-                Log::info($aux->name);
+
             }
-            Log::info($curso_id);
+            /*
  
             if($this->subscripto()->get()->where('curso_id',$curso_id)->first()){
                 Log::info("En hora buena, ya estoy subscirpto al curso");
@@ -64,6 +60,7 @@ class User extends Authenticatable
             }
             else
                 return false;
+                */
 
         }
         //Un usuario tiene muchos comentarios, en distintos cursos, puede servir

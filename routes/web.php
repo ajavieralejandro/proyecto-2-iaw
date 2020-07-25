@@ -89,6 +89,7 @@ Route::post('/admin/login', 'Auth\AdminLoginController@login')->name('AdminLogin
 //Route::post('/upload/docente', 'AdminController@uploadDocente')->name('uploadDocente');
 
 
+Route::get('/apiCursos','Curso\CursoController@apiCursos');
 
 
 

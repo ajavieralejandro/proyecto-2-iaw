@@ -75,6 +75,11 @@ class UserController extends Controller
         $user->name = $request->name;
         Log::info("Llego acá sin errores 3");
         $user->email = $request->email;
+
+        if($request->hasFile('avatar')){
+            $image = base64_encode(file_get_contents($request->file('avatar')->path()));
+            $user->avatar = $image;
+        }
         Log::info("Llego acá sin errores 4");
         $user->update();
         Log::info("Llego acá sin errores 5");

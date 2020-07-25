@@ -28,6 +28,14 @@
 
 </div>
 <div class="col-sm-12 col-md-8">
+ @if(Auth::user()->avatar)
+    <img class="avatar"  src="data:image/png;base64,{{Auth::user()->avatar}}" alt="user image">
+ @else
+    <img  style="float:right; width:300px;"  src="{{url('/images/avatar.png')}}" alt="user image">
+@endif
+
+
+    
 
 </div>
 </div>

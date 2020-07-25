@@ -71,6 +71,7 @@ class DocenteController extends Controller
 
     public function updateDocente(Request $request){
                //Reglas de validación 
+               Log::info("Estoy aca tratando de solucionar los bugs");
                $validator = Validator::make($request->all(), [
                 'name' => ['required', 'max:255'],
                 'bio' => ['required'],
@@ -89,8 +90,8 @@ class DocenteController extends Controller
         $docente->bio = $request->bio;
         $docente->profesion = $request->profesion;
         $docente->email = $request->email;
-        if($request->image){
-            $image = base64_encode(file_get_contents($request->image->path()));
+        if($request->hasFile('image')){
+            $image = base64_encode(file_get_contents($request->File('image')->path()));
             $docente->image = $image;
         }
         $docente->update();

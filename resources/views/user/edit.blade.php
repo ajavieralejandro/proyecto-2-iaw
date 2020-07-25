@@ -32,7 +32,7 @@
   <i class="fa fa-user-circle-o fa-5x" aria-hidden="true"></i>
   </label>
   <p>Upload Avatar</p>
-  <input id="file-input" name="image" type="file" />
+  <input id="file-input" name="avatar" type="file" />
 </div>
 
 
@@ -48,6 +48,8 @@
     <input type="mail" required  name="email" value="{{Auth::user()->email}}"class="form-control" id="input2" >
   </div>   
   <button type="submit" value="Upload" class="btn btn-primary">Actualizar</button>
+ 
+
 </form>
 </div>
 </div>
