@@ -90,6 +90,8 @@ class DocenteController extends Controller
     public function updateDocente(Request $request){
                //Reglas de validación 
                //Log::info("Estoy aca tratando de solucionar los bugs");
+               $docente = Docente::where('id','=', $request->id)->first();
+
                $validator = Validator::make($request->all(), [
                 'name' => 'required|string|unique:docentes,name,'.$docente->id,
                 'bio' => ['required'],
@@ -103,7 +105,6 @@ class DocenteController extends Controller
                             ->withErrors($validator)
                             ->withInput();
             }
-        $docente = Docente::where('id','=', $request->id)->first();
         $docente->name = $request->name;
         $docente->bio = $request->bio;
         $docente->profesion = $request->profesion;

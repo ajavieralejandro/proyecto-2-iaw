@@ -141,6 +141,8 @@ class CursoController extends Controller
     }
 
     public function editCurso(Request $request){
+        $curso = Curso::where('id','=',$request->id)->first();
+
             $validator = Validator::make($request->all(), [
                 'name' => 'required|string|unique:cursos,name,'.$curso->id,
                 'descripcion' => ['required'],
@@ -155,7 +157,6 @@ class CursoController extends Controller
                             ->withInput();
             }
     
-        $curso = Curso::where('id','=',$request->id)->first();
         $curso->name = $request->name;
         $curso->description = $request->descripcion;
         $curso->link = $request->link;
