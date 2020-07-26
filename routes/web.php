@@ -94,6 +94,10 @@ Route::get('/teamdocente/{id}', 'Docente\DocenteController@getTeamDocenteView')-
 Route::post('/admin/login', 'Auth\AdminLoginController@login')->name('AdminLogin');
 //Route::post('/upload/docente', 'AdminController@uploadDocente')->name('uploadDocente');
 
+Route::get('/librerias', function () {
+    return View('libraries.libraries');
+});
+
 
 
 
