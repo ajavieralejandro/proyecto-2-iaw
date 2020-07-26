@@ -20,7 +20,7 @@ class CursoController extends Controller
 
         //validator
         $validator = Validator::make($request->all(), [
-            'name' => ['required', 'max:255','unique:curso'],
+            'name' => ['required', 'max:255','unique:cursos'],
             'descripcion' => ['required'],
             'price' => 'required|integer|min:0',
             'link' => ['required'],
