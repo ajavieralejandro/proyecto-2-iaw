@@ -31,15 +31,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>  
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js" ></script>
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js" defer></script>
-    <script src="{{ asset('js/cursodt.js') }}" defer></script>
-
-
-
-
-
-
-
-
-
+    <script src="{{ asset('js/docentedt.js') }}" defer></script>
 
 @endsection
