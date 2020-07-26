@@ -9,7 +9,6 @@
             <tr>
                 <th>No</th>
                 <th>Nombre</th>
-                <th>Profesion</th>
                 <th>Action</th>
 
             </tr>
@@ -32,49 +31,10 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>  
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js" ></script>
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js" defer></script>
-
-<script type="text/javascript">
-  $(function () {
-    
-    var table = $('.data-table').DataTable({
-        processing: true,
-        serverSide: true,
-        ajax: "{{ route('getDocentesTables') }}",
-        columns: [
-            {data: 'DT_RowIndex', name: 'DT_RowIndex'},
-            {data: 'name', name: 'name'},
-            {data: 'profesion', name: 'profesion'},
-            {data: 'action', name: 'action', orderable: false, searchable: false},
-        ]
-    });
-    
-  });
-</script>
+    <script src="{{ asset('js/cursodt.js') }}" defer></script>
 
 
-<script type="text/javascript">
-//Dinamic button clicked on Jquery!!
-$(document).on('click', '.delete', function(event){
-    console.log("el elemento clickead es : ");
-    console.log(event.target.value);
-  aux = $('.delete').val(); 
-  console.log("El id es : ",aux); 
-  toDelete = confirm("Are you sure you want to Delete : "+event.target.name);
-  if(toDelete){
-    $.ajax({
-   url: '/deleteDocente',
-   type: 'DELETE',
-   data: {
-     "id" : event.target.value,
-    "_token": $("meta[name='csrf-token']").attr("content")
-   },
-   success: function(response) {
-    location.reload(true);
-   }
-});
-  }
-});
-</script>
+
 
 
 

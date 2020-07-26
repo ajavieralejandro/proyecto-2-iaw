@@ -4,40 +4,33 @@
 <div class="container">
 
 
+
+
 <div class="row">
-<div class="col-sm-12 col-md-4">
-<div class="container">
+<div class="center">
+    <div>
+
+</div>
 
 
 
-<div class="card" style="width: 18rem">
+<div class="card" >
   <div class="card-header">
-    {{Auth::user()->name}}
+    <h1 style="text-align:center;">{{Auth::user()->name}}</h1> 
+    @if(Auth::user()->avatar)
+    <img class="avatar"   src="data:image/png;base64,{{Auth::user()->avatar}}" alt="user image">
+ @else
+    <img class="avatar" src="{{url('/images/avatar.png')}}" alt="user image">
+@endif
   </div>
   <div class="list-group">
   <a href="{{route('getUserCursosView')}}" class="list-group-item list-group-item-action">Ver Cursos</a>
   <a href="{{route('editUser')}}" class="list-group-item list-group-item-action">Editar Perfil</a> 
 </div>  
-</div>
-
-
-
-</div>
-
 
 
 </div>
-<div class="col-sm-12 col-md-8">
- @if(Auth::user()->avatar)
-    <img class="avatar"  src="data:image/png;base64,{{Auth::user()->avatar}}" alt="user image">
- @else
-    <img  style="float:right; width:300px;"  src="{{url('/images/avatar.png')}}" alt="user image">
-@endif
 
-
-    
-
-</div>
 </div>
 
 </div>

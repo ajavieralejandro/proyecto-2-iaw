@@ -2,10 +2,34 @@
 
 @section('content')
 <div class="container">
+<h2>Curso : {{$curso->name}}</h2>
+<hr />
 
 <div class="row">
 <div class="col-md-6">
-<h2>Curso : {{$curso->name}}</h2>
+    <div>
+    <div class="left">
+    <div class="center">
+<img class="view-image" src="data:image/png;base64,{{$curso->image}}" alt="Red dot" /> 
+</div>
+@if(Auth::user())
+@if(Auth::user()->isSubscripto($curso->id))
+<h1>Estas subscripto</h1>
+@else
+<a  class="module-button btn btn-primary" href="{{route('addCurso', ['id' => $curso->id])}}" role="button">Subscribirse</a>
+@endif
+@endif
+
+
+
+
+
+</div>  
+</div>
+</div>
+
+<div class="col-md-6">
+
 <h4>Docente : {{$curso->docente->name}}</h4>
 {!! $curso->youtubelink !!}
 
@@ -40,6 +64,14 @@
 
 
 
+
+
+</div>  
+
+
+</div>
+
+
 <form id="form1" action="{{route('addComentario')}}" method="post">  
 @csrf
 <input type="hidden" id="id" name="id" value={{$curso->id}}>
@@ -66,32 +98,6 @@
 @endif
 
 
-
-</div>  
-<div class="col-md-6">
-    <div>
-    <div class="right">
-    <div class="center">
-<img class="view-image" src="data:image/png;base64,{{$curso->image}}" alt="Red dot" /> 
-</div>
-@if(Auth::user())
-@if(Auth::user()->isSubscripto($curso->id))
-<h1>Estas subscripto</h1>
-@else
-<a  class="module-button btn btn-primary" href="{{route('addCurso', ['id' => $curso->id])}}" role="button">Subscribirse</a>
-@endif
-@endif
-
-
-
-
-
-</div>  
-</div>
-</div>
-
-
-</div>
 
  
 </div>  

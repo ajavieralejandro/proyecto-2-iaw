@@ -1,12 +1,12 @@
 const masonryLayout = (containerElem, itemElems, columns) => {
-    console.log("Item elemens es : ");
-    console.log(itemElems);
+    //console.log("Item elemens es : ");
+    //console.log(itemElems);
     containerElem.classList.add("masonry-layout", `columns-${columns}`);
     let columnsElements = [];
     for (let i = 0; i < columns; i++) {
         let column = document.createElement("div");
         column.classList.add("masonry-column", `column-${i}`);
-        console.log("Creo que llego hasta acá sin problemas");
+        //console.log("Creo que llego hasta acá sin problemas");
         containerElem.appendChild(column);
         columnsElements.push(column);
     }
@@ -24,4 +24,4 @@ masonryLayout(
     document.querySelectorAll(".gallery-item"),
     2
 );
-console.log("Eh finalizado correctamente");
+//////console.log("Eh finalizado correctamente");

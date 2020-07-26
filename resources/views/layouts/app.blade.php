@@ -95,11 +95,14 @@
             @yield('content')
         </main>
     </div>
-</body>
 
+<div class="margin"></div>
 <footer class="mt-auto">
     <div class="center"><i class="fa fa-cubes fa-3x" aria-hidden="true"></i></div>
 </footer>
+</body>
+
+
 
 
 
