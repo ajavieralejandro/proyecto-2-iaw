@@ -89,9 +89,9 @@ class DocenteController extends Controller
 
     public function updateDocente(Request $request){
                //Reglas de validación 
-               Log::info("Estoy aca tratando de solucionar los bugs");
+               //Log::info("Estoy aca tratando de solucionar los bugs");
                $validator = Validator::make($request->all(), [
-                'name' => ['required', 'max:255'],
+                'name' => 'required|string|unique:docentes,name,'.$docente->id,
                 'bio' => ['required'],
                 'email' => ['required'],
                 'profesion' => ['required'],
@@ -131,7 +131,7 @@ class DocenteController extends Controller
 
     public function addDocente(Request $request){
         $validator = Validator::make($request->all(), [
-            'name' => ['required', 'max:255'],
+            'name' => ['required', 'max:255','unique:docentes'],
             'bio' => ['required'],
             'email' => ['required'],
             'profesion' => ['required'],

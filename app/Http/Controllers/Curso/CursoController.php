@@ -20,7 +20,7 @@ class CursoController extends Controller
 
         //validator
         $validator = Validator::make($request->all(), [
-            'name' => ['required', 'max:255'],
+            'name' => ['required', 'max:255','unique:curso'],
             'descripcion' => ['required'],
             'price' => 'required|integer|min:0',
             'link' => ['required'],
@@ -98,9 +98,12 @@ class CursoController extends Controller
     }
 
 
-    public function apiCursos(){
-        Log::info("Hola estoy en api cursos");
-        return response(['Message' => 'Todo esta andando bien!!'], 200);
+    public function apiCursos(Request $request){
+        //Log::info("Hola estoy en api cursos");
+        //Log::info($request);
+        $cursos = Curso::all();
+        return response()->json($cursos);
+        //return response(['Message' => 'Todo esta andando bien!!'], 200);
     }
 
     public function deleteCurso(Request $request){
@@ -138,9 +141,8 @@ class CursoController extends Controller
     }
 
     public function editCurso(Request $request){
-            //validator
             $validator = Validator::make($request->all(), [
-                'name' => ['required', 'max:255'],
+                'name' => 'required|string|unique:cursos,name,'.$curso->id,
                 'descripcion' => ['required'],
                 'price' => 'required|integer|min:0',
                 'link' => ['required'],

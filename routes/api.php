@@ -18,9 +18,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::middleware(['auth:web'])->group(function () {
-    Route::get('/apiCursos','Curso\CursoController@apiCursos');
+//API ENDPOINTS
+Route::middleware(['auth:api'])->group(function () {
+    Route::get('/cursos2','Curso\CursoController@apiCursos');
+    Route::post('/cursos2','Curso\CursoController@apiCursos');
+
 
 
 });
-

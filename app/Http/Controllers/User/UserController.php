@@ -23,28 +23,24 @@ class UserController extends Controller
     }
 
     public function addCurso(Request $request){
-        Log::Info("hola empezo el metodo add curso");
+        //Log::Info("hola empezo el metodo add curso");
         $user = Auth::user();
-        Log::info("Llego acá sin errores 1");
+        //Log::info("Llego acá sin errores 1");
         $curso = Curso::where('id','=', $request->id)->first();
-        Log::info("Llego acá sin errores 2");
+        //Log::info("Llego acá sin errores 2");
         if(!$user->subscripto()->get()->where('curso_id',$curso->id)->first()){
-            Log::info("Voy a subscribir al usuario : ");
+            //Log::info("Voy a subscribir al usuario : ");
             $user->subscripto()->attach($curso->id);
         
         }
-        else
-        Log::info("El usuario ya está inscripto. ");
-
-    
- 
-        Log::info("Finalizo sin errores");
+        //Log::info("El usuario ya está inscripto. ");
+        //Log::info("Finalizo sin errores");
         return back();
     }
 
     public function editUserPut(Request $request){
               //Reglas de validación 
-              Log::info("Hola pepe");
+              //Log::info("Hola pepe");
               $user = Auth::user();
 
          $validator = Validator::make($request->all(), [
