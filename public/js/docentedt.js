@@ -3,7 +3,7 @@ $(function() {
         responsive: true,
         processing: true,
         serverSide: true,
-        ajax: "/docentesTables",
+        ajax: "https://proyecto2-jaa.herokuapp.com/docentesTables",
         columns: [
             { data: "DT_RowIndex", name: "DT_RowIndex" },
             { data: "name", name: "name" },
@@ -28,7 +28,7 @@ $(document).on("click", ".delete", function(event) {
     );
     if (toDelete) {
         $.ajax({
-            url: "/deleteDocente",
+            url: "https://proyecto2-jaa.herokuapp.com/deleteDocente",
             type: "DELETE",
             data: {
                 id: event.target.value,
