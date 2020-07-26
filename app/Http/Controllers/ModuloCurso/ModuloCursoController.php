@@ -73,7 +73,7 @@ class ModuloCursoController extends Controller
             //Reglas de validación 
             $validator = Validator::make($request->all(), [
                 'title' => ['required', 'max:255'],
-                'description' => ['required'],
+                'descripcion' => ['required'],
             ]);
             
             if ($validator->fails()) {
