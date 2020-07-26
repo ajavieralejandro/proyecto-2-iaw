@@ -95,7 +95,7 @@ class DocenteController extends Controller
                $validator = Validator::make($request->all(), [
                 'name' => 'required|string|unique:docentes,name,'.$docente->id,
                 'bio' => ['required'],
-                'email' => ['required'],
+                'email' => 'required|unique:docentes,name,'.$docente->id,
                 'profesion' => ['required'],
     
             ]);
@@ -134,7 +134,7 @@ class DocenteController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => ['required', 'max:255','unique:docentes'],
             'bio' => ['required'],
-            'email' => ['required'],
+            'email' => ['required','unique:docentes'],
             'profesion' => ['required'],
 
         ]);

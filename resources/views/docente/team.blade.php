@@ -10,7 +10,7 @@
     @if($docente->image)
     <img class="mason-img avatar2"   src="data:image/png;base64,{{$docente->image}}" alt="user image">
  @else
-    <img class="mason-img avatar2 "   src="{{url('/images/avatar.png')}}" alt="user image">
+    <img class="mason-img avatar2"   src="{{url('/images/avatar.png')}}" alt="user image">
 @endif
         <div class="middle">
     <div class="text"><a href="{{route('getTeamDocenteView',['id'=>$docente->id])}}">{{$docente->name}}</a></div>
