@@ -39,7 +39,7 @@
                   </div>
                   <div class="form-group">
                      <label for="sel1">Selecciona el docente : </label>
-                     <select required  class="form-control" name="docente" value="{{$curso->docente}}" id="sel1">
+                     <select required  class="form-control" name="docente"  id="sel1">
                         @foreach ($docentes as $docente)
                         <option value={{ $docente->id }} >{{$docente->name}}</option>
                         @endforeach
