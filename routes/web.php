@@ -22,40 +22,40 @@ Route::get('/', 'HomeController@welcome')->name('welcome');
 //Admin Routes
 Route::group(['middleware' => ['auth:admin']],function () {
 Route::get('/admin', 'AdminController@index')->name('admin');
-Route::get('/newDoncente', 'AdminController@addDocenteView')->name('newDocente');
+Route::get('/admin/newDoncente', 'AdminController@addDocenteView')->name('newDocente');
 
 //Docentes Routes
-Route::get('/docentes', 'Docente\DocenteController@getDocentesView')->name('getDocentesView');
-Route::get('/editDocente/{id}', 'Docente\DocenteController@editDocenteView')->name('editDocentesView');
-Route::get('/docentesTables', 'Docente\DocenteController@getDocentesDatatables')->name('getDocentesTables');
-Route::get('/docente/{id}', 'Docente\DocenteController@getDocenteView')->name('getDocenteView');
-Route::put('/editdocente','Docente\DocenteController@updateDocente')->name('updateDocente');
-Route::delete('/deleteDocente','Docente\DocenteController@deleteDocente')->name('deleteDocente');
-Route::post('/upload/docente', 'Docente\DocenteController@addDocente')->name('uploadDocente');
+Route::get('/admin/docentes', 'Docente\DocenteController@getDocentesView')->name('getDocentesView');
+Route::get('/admin/editDocente/{id}', 'Docente\DocenteController@editDocenteView')->name('editDocentesView');
+Route::get('/admin/docentesTables', 'Docente\DocenteController@getDocentesDatatables')->name('getDocentesTables');
+Route::get('/admin/docente/{id}', 'Docente\DocenteController@getDocenteView')->name('getDocenteView');
+Route::put('/admin/editdocente','Docente\DocenteController@updateDocente')->name('updateDocente');
+Route::delete('/admin/deleteDocente','Docente\DocenteController@deleteDocente')->name('deleteDocente');
+Route::post('/admin/upload/docente', 'Docente\DocenteController@addDocente')->name('uploadDocente');
 
 
 
 //Cursos Routes
-Route::get('/newCurso', 'AdminController@addCursoView')->name('newCurso');
-Route::get('/crudCursos', 'Curso\CursoController@getCursosView')->name('cursosCrud');
-Route::post('/addCurso','Curso\CursoController@addCurso')->name('addCurso');
-Route::get('/CursoAdmin/{id}','Curso\CursoController@viewCursoAdmin')->name('viewCursoAdmin');
-Route::get('/cursosTables', 'Curso\CursoController@getCursosDatatables')->name('getCursosTables');
-Route::delete('/deleteCurso','Curso\CursoController@deleteCurso')->name('deleteCurso');
-Route::get('/editCurso/{id}', 'Curso\CursoController@editCursoView')->name('editCursoView');
-Route::get('/addModulosCurso/{id}', 'Curso\CursoController@addModulosCursoView')->name('addModulosCursoView');
-Route::put('/editCurso','Curso\CursoController@editCurso')->name('updateCurso');
+Route::get('/admin/newCurso', 'AdminController@addCursoView')->name('newCurso');
+Route::get('/admin/crudCursos', 'Curso\CursoController@getCursosView')->name('cursosCrud');
+Route::post('/admin/addCurso','Curso\CursoController@addCurso')->name('addCurso');
+Route::get('/admin/CursoAdmin/{id}','Curso\CursoController@viewCursoAdmin')->name('viewCursoAdmin');
+Route::get('/admin/cursosTables', 'Curso\CursoController@getCursosDatatables')->name('getCursosTables');
+Route::delete('/admin/deleteCurso','Curso\CursoController@deleteCurso')->name('deleteCurso');
+Route::get('/admin/editCurso/{id}', 'Curso\CursoController@editCursoView')->name('editCursoView');
+Route::get('/admin/addModulosCurso/{id}', 'Curso\CursoController@addModulosCursoView')->name('addModulosCursoView');
+Route::put('/admin/editCurso','Curso\CursoController@editCurso')->name('updateCurso');
 
 
 //Modulos Routes
-Route::post('/addModulo','ModuloCurso\ModuloCursoController@addModulo')->name('addModulo');
-Route::get('/addModulo/{id}', 'ModuloCurso\ModuloCursoController@addModuloView')->name('addModuloView');
-Route::get('/getModulosView/{id}', 'ModuloCurso\ModuloCursoController@getModulosView')->name('getModulosView');
-Route::get('/getModulosTables/{id}', 'ModuloCurso\ModuloCursoController@getModulosTables')->name('getModulosTables');
-Route::get('/modulo/{id}', 'ModuloCurso\ModuloCursoController@getModuloView')->name('getModuloView');
-Route::get('/editmodulo/{id}', 'ModuloCurso\ModuloCursoController@editModuloView')->name('editModuloView');
-Route::put('/editModulo','ModuloCurso\ModuloCursoController@editModulo')->name('editModulo');
-Route::delete('/deleteModulo','ModuloCurso\ModuloCursoController@deleteModulo')->name('deleteModulo');
+Route::post('/admin/addModulo','ModuloCurso\ModuloCursoController@addModulo')->name('addModulo');
+Route::get('/admin/addModulo/{id}', 'ModuloCurso\ModuloCursoController@addModuloView')->name('addModuloView');
+Route::get('/admin/getModulosView/{id}', 'ModuloCurso\ModuloCursoController@getModulosView')->name('getModulosView');
+Route::get('/admin/getModulosTables/{id}', 'ModuloCurso\ModuloCursoController@getModulosTables')->name('getModulosTables');
+Route::get('/admin/modulo/{id}', 'ModuloCurso\ModuloCursoController@getModuloView')->name('getModuloView');
+Route::get('/admin/editmodulo/{id}', 'ModuloCurso\ModuloCursoController@editModuloView')->name('editModuloView');
+Route::put('/admin/editModulo','ModuloCurso\ModuloCursoController@editModulo')->name('editModulo');
+Route::delete('/admin/deleteModulo','ModuloCurso\ModuloCursoController@deleteModulo')->name('deleteModulo');
 
 
 }

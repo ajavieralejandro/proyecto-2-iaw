@@ -15,7 +15,7 @@
 
 
 
-<form id="form1" action="/addModulo" method="post">  
+<form id="form1" action="/admin/addModulo" method="post">  
 <input type="hidden" id="id" name="id" value={{$curso->id}}>
 @csrf
 

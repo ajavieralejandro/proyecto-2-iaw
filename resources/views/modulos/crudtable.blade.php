@@ -60,7 +60,7 @@ $(document).on('click', '.delete', function(event){
   toDelete = confirm("Are you sure you want to Delete : "+event.target.name);
   if(toDelete){
     $.ajax({
-   url: '/deleteModulo',
+   url: 'https://proyecto2-jaa.herokuapp.com/admin/deleteModulo',
    type: 'DELETE',
    data: {
      "id" : event.target.value,

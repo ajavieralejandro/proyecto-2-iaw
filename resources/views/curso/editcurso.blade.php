@@ -10,7 +10,7 @@
       </ul>
    </div>
    @endif
-   <form id="form1" action="/editCurso" method="post" enctype="multipart/form-data">
+   <form id="form1" action="/admin/editCurso" method="post" enctype="multipart/form-data">
       <input type="hidden" id="id" name="id" value={{$curso->id}}>
       @method('PUT')
       @csrf

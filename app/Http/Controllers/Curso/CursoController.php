@@ -63,8 +63,8 @@ class CursoController extends Controller
             return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('action', function($data){
-                           $btn = '<div><a href="/CursoAdmin/'.$data->id.'" class="edit btn btn-outline-success btn-sm">View</a>
-                           <a href="editCurso/'.$data->id.'" class="edit btn btn-outline-warning btn-sm">Edit</a>
+                           $btn = '<div><a href="/admin/CursoAdmin/'.$data->id.'" class="edit btn btn-outline-success btn-sm">View</a>
+                           <a href="/admin/editCurso/'.$data->id.'" class="edit btn btn-outline-warning btn-sm">Edit</a>
                            <button name='.$data->name.'  value='.$data->id.' class="delete btn btn-outline-danger btn-sm">Delete</button></div>';
 
                             return $btn;

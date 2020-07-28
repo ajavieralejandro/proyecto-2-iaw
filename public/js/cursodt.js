@@ -9,7 +9,7 @@ $(document).on("click", ".delete", function(event) {
     );
     if (toDelete) {
         $.ajax({
-            url: "https://proyecto2-jaa.herokuapp.com/deleteCurso",
+            url: "https://proyecto2-jaa.herokuapp.com/admin/deleteCurso",
             type: "DELETE",
             data: {
                 id: event.target.value,
@@ -27,7 +27,7 @@ $(function() {
         processing: true,
         serverSide: true,
         responsive: true,
-        ajax: "https://proyecto2-jaa.herokuapp.com/cursosTables",
+        ajax: "https://proyecto2-jaa.herokuapp.com/admin/cursosTables",
         columns: [
             { data: "DT_RowIndex", name: "DT_RowIndex" },
             { data: "name", name: "name" },

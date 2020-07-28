@@ -18,7 +18,7 @@
   </div>
   <div class="card-body">
 
-<form action="/upload/docente" method="post" enctype="multipart/form-data">
+<form action="/admin/upload/docente" method="post" enctype="multipart/form-data">
 @csrf
 
 

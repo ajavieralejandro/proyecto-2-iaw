@@ -12,7 +12,7 @@
         </ul>
     </div>
 @endif
-<form id="form1" action="/editModulo" method="post">
+<form id="form1" action="/admin/editModulo" method="post">
 @method('PUT')
 <input type="hidden" id="id" name="id" value={{$modulo->id}}>
 

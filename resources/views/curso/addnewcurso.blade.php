@@ -15,7 +15,7 @@
 <div class="center">
 
 
-<form id="form1" action="/addCurso" method="post" enctype="multipart/form-data">  
+<form id="form1" action="/admin/addCurso" method="post" enctype="multipart/form-data">  
 @csrf
 
 

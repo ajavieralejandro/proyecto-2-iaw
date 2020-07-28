@@ -19,7 +19,7 @@
   </div>
   <div class="card-body">
 
-<form action="/editUser" method="post" enctype="multipart/form-data">
+<form action="/admin/editUser" method="post" enctype="multipart/form-data">
 
 @method('PUT')
     @csrf
