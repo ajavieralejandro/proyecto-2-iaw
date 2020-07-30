@@ -28,7 +28,7 @@
 
   <div class="form-group">
   <label for="input1">Nombre del Curso: </label>
-    <input required  type="text" class="form-control" value="{{ old('name) }}" id="input1" name="name"  placeholder="Ej : Biomodelos">
+    <input required  type="text" class="form-control" value="{{ old('name') }}" id="input1" name="name"  placeholder="Ej : Biomodelos">
   </div>
   <div class="form-group">
   <label for="input2">Youtube Link : </label>
