@@ -56,7 +56,7 @@
 
   <div class="form-group">
   <label for="comment">Descripcion</label>
-  <textarea required  name="descripcion" value="{{ old('description') }}" class="form-control" rows="5" id="comment"></textarea>
+  <textarea required  name="descripcion"  class="form-control" rows="5" id="comment">{ old('description') }}</textarea>
 </div>
 
 <div class="image-upload" style="text-align:center">
