@@ -97,6 +97,8 @@ class DocenteController extends Controller
                 'bio' => ['required'],
                 'email' => 'required|unique:docentes,name,'.$docente->id,
                 'profesion' => ['required'],
+                'image' => ['mimes:jpeg,bmp,png']
+
     
             ]);
             
@@ -109,7 +111,8 @@ class DocenteController extends Controller
         $docente->bio = $request->bio;
         $docente->profesion = $request->profesion;
         $docente->email = $request->email;
-        if($request->hasFile('image')){
+        
+        if($request->hasFile('image') && $request->file('image')->getSize()){
             $image = base64_encode(file_get_contents($request->File('image')->path()));
             $docente->image = $image;
         }
@@ -136,6 +139,8 @@ class DocenteController extends Controller
             'bio' => ['required'],
             'email' => ['required','unique:docentes'],
             'profesion' => ['required'],
+            'image' => ['mimes:jpeg,bmp,png'],
+
 
         ]);
         
@@ -150,7 +155,7 @@ class DocenteController extends Controller
         $docente->bio = $request->bio;
         $docente->profesion = $request->profesion;
         $docente->email = $request->email;
-        if($request->image){
+        if($request->image && $request->file('image')->getSize()){
             $image = base64_encode(file_get_contents($request->image->path()));
             $docente->image = $image;
         }
