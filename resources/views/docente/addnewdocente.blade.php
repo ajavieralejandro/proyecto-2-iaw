@@ -34,20 +34,20 @@
 
   <div class="form-group">
   <label for="input1">Nombre del Docente </label>
-    <input type="text" required  name="name" class="form-control" id="input1"  placeholder="Juan Perez">
+    <input type="text" required  value="{{ old('name') }}"  name="name" class="form-control" id="input1"  placeholder="Juan Perez">
   </div>
   <div class="form-group">
   <label for="input1">email </label>
-    <input type="email" required  name="email" class="form-control" id="input0"  placeholder="email@example.com">
+    <input type="email" required  value="{{ old('email') }}"  name="email" class="form-control" id="input0"  placeholder="email@example.com">
   </div>
   <div class="form-group">
   <label for="input2">Profesión: </label>
-    <input type="text" required  class="form-control" name="profesion" id="input2"  placeholder="Ej: abogado">
+    <input type="text" required  value="{{ old('profesion') }}"  class="form-control" name="profesion" id="input2"  placeholder="Ej: abogado">
   </div>
 
   <div class="form-group">
   <label for="comment">Bio: </label>
-  <textarea class="form-control" required  name="bio" rows="5" id="comment"></textarea>
+  <textarea class="form-control" required  name="bio" rows="5" id="comment"> value="{{ old('bio') }}"</textarea>
 </div>
 
   <button type="submit" value="Upload" class="btn btn-primary">Cargar Docente</button>
