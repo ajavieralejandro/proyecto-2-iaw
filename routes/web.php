@@ -71,6 +71,10 @@ Route::middleware(['auth:web'])->group(function () {
     Route::get('/userCursos', 'User\UserController@getUserCursosView')->name('getUserCursosView');
 
     Route::post('/addComentario', 'Comentario\ComentarioController@addComentario')->name('addComentario');
+    Route::get('/spa',function(){
+        return View('spa.spa');
+    });
+    
 
 
 
