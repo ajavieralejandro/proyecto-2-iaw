@@ -17,15 +17,18 @@ class CursoController extends Controller
 {
     //
     public function addCurso(Request $request){
-
+        //dd($request);
         //validator
         $validator = Validator::make($request->all(), [
             'name' => ['required', 'max:255','unique:cursos'],
             'descripcion' => ['required'],
             'price' => 'required|integer|min:0',
-            'link' => ['required'],
+            'link' => ['    required'],
             'youtubelink' => ['required'],
-            'docente' => ['required'],            
+            'docente' => ['required'],
+            'image' => ['mimes:jpeg,bmp,png']
+
+            
         ]);
         if ($validator->fails()) {
             return back()
@@ -42,7 +45,7 @@ class CursoController extends Controller
         $curso->youtubelink = $request->youtubelink;
         $curso->docente_id = $request->docente;
         //la imagen puede ser nula 
-        if($request->image){
+        if($request->image && $request->file('image')->getSize()){
             $image = base64_encode(file_get_contents($request->image->path()));
             $curso->image = $image;
         }
@@ -149,7 +152,9 @@ class CursoController extends Controller
                 'price' => 'required|integer|min:0',
                 'link' => ['required'],
                 'youtubelink' => ['required'],
-                'docente' => ['required'],            
+                'docente' => ['required'],
+                'image' => ['mimes:jpeg,bmp,png']
+            
             ]);
             if ($validator->fails()) {
                 return back()
@@ -162,7 +167,7 @@ class CursoController extends Controller
         $curso->link = $request->link;
         $curso->youtubelink = $request->youtubelink;
         $curso->docente_id = $request->docente;
-        if($request->image){
+        if($request->image && $request->file('image')->getSize()){
             $image = base64_encode(file_get_contents($request->image->path()));
             $curso->image = $image;
         }
