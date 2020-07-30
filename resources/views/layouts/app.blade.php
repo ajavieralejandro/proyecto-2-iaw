@@ -83,8 +83,14 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
+                                    @if(Auth::guard('admin')->check())
+                                    <a class="dropdown-item"  href="{{ route('admin') }}">
+                                    {{ Auth::user()->name }}                                    </a>
+                                    @else
+
                                     <a class="dropdown-item"  href="{{ route('viewUser') }}">
                                     {{ Auth::user()->name }}                                    </a>
+                                    @endif
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf

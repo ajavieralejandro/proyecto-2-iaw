@@ -2,8 +2,10 @@
 
 @section('content')
 <div class="container">
-<h2>Curso : {{$curso->name}}</h2>
-<hr />
+<h4 style="text-align:left;float:left;">Curso : {{$curso->name}}</h4> 
+<p style="text-align:right;float:right;">Docente : {{$curso->docente->name}}</p> 
+<hr style="clear:both;"/>
+
 
 <div class="row">
 <div class="col-md-6">
@@ -30,7 +32,6 @@
 
 <div class="col-md-6">
 
-<h4>Docente : {{$curso->docente->name}}</h4>
 {!! $curso->youtubelink !!}
 
 <h4>Descripción : </h4>
