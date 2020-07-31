@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -69,10 +70,8 @@ Route::middleware(['auth:web'])->group(function () {
     Route::put('/editUser', 'User\UserController@editUserPut')->name('editUserPut');
     Route::get('/addCurso/{id}', 'User\UserController@addCurso')->name('addCurso');
     Route::get('/userCursos', 'User\UserController@getUserCursosView')->name('getUserCursosView');
-
+    Route::get('/spa','Token\TokenController@getSPA')->name('getSPA');
     Route::post('/addComentario', 'Comentario\ComentarioController@addComentario')->name('addComentario');
-
-
 
 
 
@@ -87,6 +86,7 @@ Route::get('/team', 'Docente\DocenteController@getTeamView')->name('getTeamView'
 Route::get('/teamdocente/{id}', 'Docente\DocenteController@getTeamDocenteView')->name('getTeamDocenteView');
 
     
+Route::get('/redirect', 'Token\TokenController@redirect')->name('redirect');
 
 
 
@@ -97,6 +97,7 @@ Route::post('/admin/login', 'Auth\AdminLoginController@login')->name('AdminLogin
 Route::get('/librerias', function () {
     return View('libraries.libraries');
 });
+
 
 
 
