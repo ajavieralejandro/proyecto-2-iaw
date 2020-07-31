@@ -6,8 +6,8 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    @if(Auth::user())
-    <meta name="api_token" content="{{ Auth::user()->api_token }}">
+    @if($token)
+    <meta id="api_token" name="api_token" content="{{ $token }}">
     @endif
 
 
