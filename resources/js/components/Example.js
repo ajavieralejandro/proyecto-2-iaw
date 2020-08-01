@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import SearchComponent from "./Search/search.component";
+import CursoComponent from "./Cursos/cursos.component";
 const token = document.getElementById("api_token").content;
 //buildpack deploy
 function Example() {
@@ -30,12 +31,15 @@ function Example() {
     return (
         <div className="container">
             <SearchComponent />
+            <CursoComponent />
             <div className="row justify-content-center">
                 <div className="col-md-8">
                     <div className="card">
                         <div className="card-header">Example Component</div>
 
-                        <div className="card-body">Estoy haciendo cambios</div>
+                        <div className="card-body">
+                            Estoy haciendo cambios 2
+                        </div>
                     </div>
                 </div>
             </div>
