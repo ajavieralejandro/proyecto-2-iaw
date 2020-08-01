@@ -38,7 +38,7 @@ function Example() {
                         <div className="card-header">Example Component</div>
 
                         <div className="card-body">
-                            Estoy haciendo cambios 2
+                            Estoy haciendo cambios 2.1.1
                         </div>
                     </div>
                 </div>
