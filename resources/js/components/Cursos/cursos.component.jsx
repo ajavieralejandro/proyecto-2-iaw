@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from "react";
-
+import CursoContext from "../../providers/curso.provider";
 let Cursos = () => {
     return (
-        <div>
-            <div></div>
-        </div>
+        <CursoContext.Consumer>
+            {cursos => (
+                <div>
+                    <h1>Cusumiendo el context : {cursos.toSearch()}</h1>
+                </div>
+            )}
+        </CursoContext.Consumer>
     );
 };
 

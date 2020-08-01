@@ -6,7 +6,7 @@ export const CursoContext = createContext({
 });
 
 const CursoProvider = ({ children }) => {
-    const [toSearch, setToSearch] = useState("");
+    const [toSearch, setToSearch] = useState("Hola ");
     const [cursos, setCursos] = useState([]);
 
     useEffect(() => {
