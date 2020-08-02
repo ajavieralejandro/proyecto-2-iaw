@@ -59,7 +59,7 @@ return [
 
     'storage' => [
         'database' => [
-            'connection' => env('DB_CONNECTION', 'psgql'),
+            'connection' => env('DB_CONNECTION', 'pgsql'),
         ],
     ],
 
