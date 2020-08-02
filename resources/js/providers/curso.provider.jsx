@@ -8,7 +8,7 @@ export const CursoContext = createContext({
 });
 
 const CursoProvider = ({ children }) => {
-    const [toSearch, setToSearch] = useState("Seteo la cadena");
+    const [toSearch, setToSearch] = useState("");
     const [cursos, setCursos] = useState([]);
 
     const toFetch = toSearch => setToSearch(toSearch);

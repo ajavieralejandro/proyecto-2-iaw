@@ -3,15 +3,22 @@ import ReactDOM from "react-dom";
 import SearchComponent from "./Search/search.component";
 import CursoComponent from "./Cursos/cursos.component";
 import CursoProvider from "../providers/curso.provider";
-const token = document.getElementById("api_token").content;
+import Grid from "@material-ui/core/Grid";
+
 //buildpack deploy
 function Example() {
     return (
         <div className="container">
-            <CursoProvider>
-                <SearchComponent />
-                <CursoComponent />
-            </CursoProvider>
+            <Grid container spacing={2}>
+                <CursoProvider>
+                    <Grid item xs={12} md={3}>
+                        <SearchComponent />
+                    </Grid>
+                    <Grid item xs={12} md={9}>
+                        <CursoComponent />
+                    </Grid>
+                </CursoProvider>
+            </Grid>
         </div>
     );
 }

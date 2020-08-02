@@ -89,13 +89,14 @@ class CursoController extends Controller
         Log::info("Estoy en el metodo de ViewCurso");
         $id = $request->route('id');
         $curso = Curso::where('id','=', $id)->first();
+        if($curso!=null)
+        return View("curso.curso",['curso'=>$curso]);
         $curso->youtubelink = Embed::make($curso->youtubelink)->parseUrl();
         if($curso->youtubelink){
             $curso->youtubelink->setAttribute(['width' => 400]);
             $curso->youtubelink = $curso->youtubelink->getHtml();
         }
-        if($curso!=null)
-            return View("curso.curso",['curso'=>$curso]);
+     
         else
             return back();
     }
@@ -111,9 +112,12 @@ class CursoController extends Controller
 
     public function apiCursos2(Request $request){
         Log::info("Hola estoy en api cursos");
+        
         $name = request('name');
+        if($name)
+            $name = $name.toLowerCase();
         Log::info($name);
-        $cursos = Curso::where('name', 'LIKE', '%'.$name.'%')->get();
+        $cursos = Curso::whereRaw('lower(name) like (?)', ["%{$name}%"])->get();
         return response()->json($cursos);
         //return response(['Message' => 'Todo esta andando bien!!'], 200);
     }
