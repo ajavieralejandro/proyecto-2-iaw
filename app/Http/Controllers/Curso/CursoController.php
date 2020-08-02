@@ -109,9 +109,18 @@ class CursoController extends Controller
         //return response(['Message' => 'Todo esta andando bien!!'], 200);
     }
 
+    public function apiCursos2(Request $request){
+        Log::info("Hola estoy en api cursos");
+        $name = request('name');
+        Log::info($name);
+        $cursos = Curso::where('name', 'LIKE', '%'.$name.'%')->get();
+        return response()->json($cursos);
+        //return response(['Message' => 'Todo esta andando bien!!'], 200);
+    }
+
     public function deleteCurso(Request $request){
         if($request->ajax()){
-        Log::info("Logging one variable: ");
+        Log::info("Logging on   e variable: ");
         $id = $request->id;
         $curso = Curso::where('id','=', $id)->first();
         if($curso->delete())
