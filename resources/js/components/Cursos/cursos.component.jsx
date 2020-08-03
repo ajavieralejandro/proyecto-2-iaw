@@ -13,7 +13,9 @@ let Cursos = () => {
         cursos,
         cursosFetched,
         fetchLoading,
-        loading
+        loading,
+        error,
+        setError
     } = useContext(CursoContext);
     useEffect(() => {
         fetchLoading(true);
@@ -39,8 +41,7 @@ let Cursos = () => {
                 // un bloque catch() para que no interceptemos errores
                 // de errores reales en los componentes.
                 error => {
-                    console.log("Error : ");
-                    console.log(error);
+                    setError(true);
                     fetchLoading(false);
                 }
             );
@@ -57,13 +58,17 @@ let Cursos = () => {
                     <CircularProgress />
                 </Grid>
             ) : (
-                <Grid container spacing={2}>
-                    {cursos.map(curso => (
-                        <Grid key={curso.id} item xs={12} md={3}>
-                            <CursoCard key={curso.id} curso={curso} />
-                        </Grid>
-                    ))}
-                </Grid>
+                <div>
+                    {error ? <h1>se ha producido un error</h1> : null}
+
+                    <Grid container spacing={2}>
+                        {cursos.map(curso => (
+                            <Grid key={curso.id} item xs={12} md={3}>
+                                <CursoCard key={curso.id} curso={curso} />
+                            </Grid>
+                        ))}
+                    </Grid>
+                </div>
             )}
         </div>
     );

@@ -2,6 +2,8 @@ import React, { createContext, useState, useEffect } from "react";
 
 export const CursoContext = createContext({
     loading: true,
+    error: false,
+    setError: () => {},
     cursos: [],
     toSearch: "",
     cursosFetched: () => {},
@@ -13,7 +15,9 @@ const CursoProvider = ({ children }) => {
     const [toSearch, setToSearch] = useState("");
     const [loading, setLoading] = useState(true);
     const [cursos, setCursos] = useState([]);
+    const [error, setStateError] = useState(false);
 
+    const setError = error => setStateError(error);
     const toFetch = toSearch => setToSearch(toSearch);
     const cursosFetched = cursos => setCursos(cursos);
     const fetchLoading = load => setLoading(load);
@@ -31,7 +35,9 @@ const CursoProvider = ({ children }) => {
                 cursosFetched,
                 cursos,
                 loading,
-                fetchLoading
+                fetchLoading,
+                error,
+                setError
             }}
         >
             {children}
