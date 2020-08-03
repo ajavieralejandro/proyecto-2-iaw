@@ -54,7 +54,6 @@ let Cursos = () => {
                     justify="center"
                     alignItems="center"
                 >
-                    >
                     <CircularProgress />
                 </Grid>
             ) : (
