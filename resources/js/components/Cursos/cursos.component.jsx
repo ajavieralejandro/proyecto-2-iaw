@@ -59,15 +59,17 @@ let Cursos = () => {
                 </Grid>
             ) : (
                 <div>
-                    {error ? <h1>se ha producido un error</h1> : null}
-
-                    <Grid container spacing={2}>
-                        {cursos.map(curso => (
-                            <Grid key={curso.id} item xs={12} md={3}>
-                                <CursoCard key={curso.id} curso={curso} />
-                            </Grid>
-                        ))}
-                    </Grid>
+                    {error ? (
+                        <h1>se ha producido un error</h1>
+                    ) : (
+                        <Grid container spacing={2}>
+                            {cursos.map(curso => (
+                                <Grid key={curso.id} item xs={12} md={3}>
+                                    <CursoCard key={curso.id} curso={curso} />
+                                </Grid>
+                            ))}
+                        </Grid>
+                    )}
                 </div>
             )}
         </div>
