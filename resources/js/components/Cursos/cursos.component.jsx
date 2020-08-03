@@ -3,13 +3,20 @@ import { CursoContext } from "../../providers/curso.provider";
 
 import CursoCard from "../CursoCard/cursocard.component";
 import Grid from "@material-ui/core/Grid";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 const token = document.getElementById("api_token").content;
 
 let Cursos = () => {
-    const { toSearch, cursos, cursosFetched } = useContext(CursoContext);
+    const {
+        toSearch,
+        cursos,
+        cursosFetched,
+        fetchLoading,
+        loading
+    } = useContext(CursoContext);
     useEffect(() => {
-        //console.log("Estoy trayendo : ", token);
+        fetchLoading(true);
         fetch(
             "https://proyecto2-jaa.herokuapp.com/api/cursos?name=" +
                 `${toSearch}`,
@@ -26,6 +33,7 @@ let Cursos = () => {
                 result => {
                     //console.log("Estoy trayendo : ", result);
                     cursosFetched(result);
+                    fetchLoading(false);
                 },
                 // Nota: es importante manejar errores aquí y no en
                 // un bloque catch() para que no interceptemos errores
@@ -33,17 +41,32 @@ let Cursos = () => {
                 error => {
                     console.log("Error : ");
                     console.log(error);
+                    fetchLoading(false);
                 }
             );
     }, [toSearch]);
     return (
-        <Grid container spacing={2}>
-            {cursos.map(curso => (
-                <Grid key={curso.id} item xs={12} md={3}>
-                    <CursoCard key={curso.id} curso={curso} />
+        <div>
+            {loading ? (
+                <Grid
+                    container
+                    direction="row"
+                    justify="center"
+                    alignItems="center"
+                >
+                    >
+                    <CircularProgress />
                 </Grid>
-            ))}
-        </Grid>
+            ) : (
+                <Grid container spacing={2}>
+                    {cursos.map(curso => (
+                        <Grid key={curso.id} item xs={12} md={3}>
+                            <CursoCard key={curso.id} curso={curso} />
+                        </Grid>
+                    ))}
+                </Grid>
+            )}
+        </div>
     );
 };
 

@@ -1,18 +1,22 @@
 import React, { createContext, useState, useEffect } from "react";
 
 export const CursoContext = createContext({
+    loading: true,
     cursos: [],
     toSearch: "",
     cursosFetched: () => {},
-    toFetch: () => {}
+    toFetch: () => {},
+    fetchLoading: () => {}
 });
 
 const CursoProvider = ({ children }) => {
     const [toSearch, setToSearch] = useState("");
+    const [loading, setLoading] = useState(true);
     const [cursos, setCursos] = useState([]);
 
     const toFetch = toSearch => setToSearch(toSearch);
     const cursosFetched = cursos => setCursos(cursos);
+    const fetchLoading = load => setLoading(load);
 
     useEffect(() => {
         //setCartItemsCount(getCartItemsCount(cartItems));
@@ -25,7 +29,9 @@ const CursoProvider = ({ children }) => {
                 toFetch,
                 toSearch,
                 cursosFetched,
-                cursos
+                cursos,
+                loading,
+                fetchLoading
             }}
         >
             {children}

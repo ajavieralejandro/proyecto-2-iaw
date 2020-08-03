@@ -17,7 +17,7 @@ const useStyles = makeStyles({
     }
 });
 let CursoCard = curso => {
-    const { name, image, description } = curso.curso;
+    const { name, image, description, id } = curso.curso;
     let array = description.split("\n");
     let _sDesc = array[0];
     if (!_sDesc.length < 25) _sDesc = _sDesc.substr(0, 25) + "...";
@@ -47,11 +47,7 @@ let CursoCard = curso => {
                 </CardContent>
             </CardActionArea>
             <CardActions>
-                <Button
-                    href={"/Curso/" + curso.id}
-                    size="small"
-                    color="primary"
-                >
+                <Button href={"/Curso/" + id} size="small" color="primary">
                     Ver más
                 </Button>
             </CardActions>

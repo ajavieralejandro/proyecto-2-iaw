@@ -30,8 +30,8 @@ class TokenController extends Controller
 
     public function getSPA(Request $request){
         //to change on deploy
-        //$token = Auth::user()->createToken('api')->accessToken;
-        return View('spa.spa',['token' => "ASDLKASJFLKASJ"]);
+        $token = Auth::user()->createToken('api')->accessToken;
+        return View('spa.spa',['token' => $token]);
     }
 
     public function getApiToken(Request $request){

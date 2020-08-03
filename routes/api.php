@@ -19,15 +19,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/getToken','Token\TokenController@getApiToken');
-Route::get('/cursos','Curso\CursoController@apiCursos2');
 
 
 //API ENDPOINTS
 Route::middleware(['auth:api'])->group(function () {
-    Route::get('/cursos2','Curso\CursoController@apiCursos');
-    Route::post('/cursos2','Curso\CursoController@apiCursos');
-
-
-
+    Route::get('/cursos','Curso\CursoController@apiCursos2');
 });
 

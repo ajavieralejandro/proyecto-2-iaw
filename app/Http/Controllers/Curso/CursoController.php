@@ -89,16 +89,18 @@ class CursoController extends Controller
         Log::info("Estoy en el metodo de ViewCurso");
         $id = $request->route('id');
         $curso = Curso::where('id','=', $id)->first();
-        if($curso!=null)
-        return View("curso.curso",['curso'=>$curso]);
+        $cursos = Curso::all();
+        if(!$curso)
+        return View('welcome',['cursos'=>$cursos]);
         $curso->youtubelink = Embed::make($curso->youtubelink)->parseUrl();
         if($curso->youtubelink){
             $curso->youtubelink->setAttribute(['width' => 400]);
             $curso->youtubelink = $curso->youtubelink->getHtml();
+
         }
-     
-        else
-            return back();
+        return View("curso.curso",['curso'=>$curso]);
+
+ 
     }
 
 

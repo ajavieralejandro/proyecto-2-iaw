@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
 const SearchComponent = () => {
     const classes = useStyles();
 
-    const { toFetch } = useContext(CursoContext);
+    const { toFetch, fetchLoading } = useContext(CursoContext);
 
     let onChange = event => {
         toFetch(event.target.value);
