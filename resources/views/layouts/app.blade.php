@@ -54,7 +54,7 @@
                     <ul class="navbar-nav mr-auto">
                     <!--<a class="nav-link" href="#">Cursos <span class="sr-only">(current)</span></a> -->
                     <a class="nav-link" href="{{ route('getTeamView') }}">Equipo <span class="sr-only">(current)</span></a>
-                    <a class="nav-link" href="{{ route('getSPA) }}" >Cursos SPA <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{{ route('getSPA') }}" >Cursos SPA <span class="sr-only">(current)</span></a>
 
                     <a class="nav-link" href="/librerias">Librerias <span class="sr-only">(current)</span></a>
 
