@@ -8,6 +8,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @if($token ?? '' != null)   
     <meta id="api_token" name="api_token" content="{{ $token ?? '' }}">
+    @else 
+    <meta id="api_token" name="api_token" content="">
+
     @endif
 
 
