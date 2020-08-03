@@ -115,7 +115,7 @@ class CursoController extends Controller
         
         $name = request('name');
         if($name)
-            $name = $name.toLowerCase();
+            $name = strtolower($name);
         Log::info($name);
         $cursos = Curso::whereRaw('lower(name) like (?)', ["%{$name}%"])->get();
         return response()->json($cursos);
