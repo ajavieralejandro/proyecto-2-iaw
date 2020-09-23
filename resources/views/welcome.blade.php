@@ -3,6 +3,7 @@
 @section('content')
 <div class="container">
 <div class="gallery" id="gallery">
+<h1>Cursos : </h1>
 
 @foreach($cursos as $curso)
     <div class="gallery-item">
