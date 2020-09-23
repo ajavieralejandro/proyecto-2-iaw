@@ -20,6 +20,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/getToken','Token\TokenController@getApiToken');
 Route::get('/getCursos','Curso\CursoController@apiCursos');
+Route::get('/getDocente','Docente\DocenteController@ApiGetDocente');
+
 
 
 

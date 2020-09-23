@@ -61,10 +61,10 @@ class DocenteController extends Controller
 
     }
 
-    public function apiGetDocente(Request $request){
+    public function ApiGetDocente(Request $request){
         $id = $request->route('id');
         $docente = Docente::where('id','=', $id)->first();
-        return $docente;
+        return  response()->json($docente);
 
     }
 
