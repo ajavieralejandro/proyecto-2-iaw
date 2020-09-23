@@ -61,6 +61,13 @@ class DocenteController extends Controller
 
     }
 
+    public function apiGetDocente(Request $request){
+        $id = $request->route('id');
+        $docente = Docente::where('id','=', $id)->first();
+        return $docente;
+
+    }
+
     public function getTeamView(Request $request){
 
         $docentes = Docente::all();
