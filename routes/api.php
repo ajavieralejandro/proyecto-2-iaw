@@ -17,3 +17,18 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/getToken','Token\TokenController@getApiToken');
+Route::get('/getCursos','Curso\CursoController@apiCursos');
+Route::get('/getDocente/{id}','Docente\DocenteController@ApiGetDocente');
+
+
+
+
+
+//API ENDPOINTS
+Route::middleware(['auth:api'])->group(function () {
+    Route::get('/cursos','Curso\CursoController@apiCursos2');
+    
+});
+

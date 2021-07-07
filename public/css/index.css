@@ -1,0 +1,125 @@
+.image-upload > input {
+    display: none;
+}
+
+.card-img {
+    max-width: 100%;
+    max-height: 170px;
+}
+
+.view-image {
+    border-radius: 8px;
+    width: 350px;
+}
+
+.module-button {
+    margin-top: 5%;
+    width: 100%;
+}
+
+.avatar {
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+    float: right;
+}
+
+.avatar2 {
+    border-radius: 50%;
+}
+
+.center {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.centered-text {
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+}
+
+.margin {
+    margin-top: 5%;
+}
+@media only screen and (min-width: 600px) {
+    .responsive-card {
+        width: 800px;
+    }
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+/*Masonry layout css*/
+
+.mason-img {
+    opacity: 1;
+    display: block;
+    max-width: 100%;
+    transition: 0.5s ease;
+    backface-visibility: hidden;
+}
+
+.masonry-layout {
+    --columns: 1;
+    --gap: 2rem;
+    display: grid;
+    grid-template-columns: repeat(var(--columns), 1fr);
+    grid-gap: var(--gap);
+}
+
+.masonry-layout.columns-1 {
+    --columns: 1;
+}
+
+.masonry-layout.columns-2 {
+    --columns: 2;
+}
+.masonry-layout.columns-3 {
+    --columns: 3;
+}
+.masonry-layout.columns-4 {
+    --columns: 4;
+}
+
+.gallery-item {
+    position: relative;
+    margin-top: 5%;
+}
+
+.middle {
+    opacity: 0;
+    transition: 0.5s ease;
+    position: absolute;
+    cursor: pointer;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    line-height: 100%;
+}
+
+.gallery-item:hover .mason-img {
+    opacity: 0.2;
+}
+
+.gallery-item:hover .middle {
+    opacity: 1;
+}
+
+.text {
+    background-color: white;
+    color: black;
+    font-size: 16px;
+    padding: 16px 32px;
+    text-align: center;
+}
